@@ -5,7 +5,7 @@
  */
 package uniquejewerlydesings;
 
-import view.Inicio;
+import uniquejewerlydesings.vista.Inicio;
 
 /**
  *
