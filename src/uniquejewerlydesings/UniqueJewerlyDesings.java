@@ -5,6 +5,7 @@
  */
 package uniquejewerlydesings;
 
+import uniquejewerlydesings.modelo.Conexion;
 import uniquejewerlydesings.vista.Inicio;
 
 /**
@@ -18,7 +19,9 @@ public class UniqueJewerlyDesings {
      */
     public static void main(String[] args) {
         Inicio inicio=new Inicio();
-        inicio.setVisible(true);
+       inicio.setVisible(true);
+        Conexion con=new Conexion();
+       
     }
     
 }
