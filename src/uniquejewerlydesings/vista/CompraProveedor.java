@@ -12,7 +12,7 @@ package uniquejewerlydesings.vista;
 public class CompraProveedor extends javax.swing.JFrame {
 
     /**
-     * Creates new form CompraProveedor
+     * Creates new form CompraProveedor cambiop
      */
     public CompraProveedor() {
         initComponents();
