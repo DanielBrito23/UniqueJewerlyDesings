@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
         private Connection con;
-    private final static String cadConexion= "jdbc:postgresql://localhost:5432/base";
+    private final static String cadConexion= "jdbc:postgresql://localhost:5432/joyeria";
     String usuario = "postgres";
     //String pass= "0350015830";
     String  pass = "1256";
