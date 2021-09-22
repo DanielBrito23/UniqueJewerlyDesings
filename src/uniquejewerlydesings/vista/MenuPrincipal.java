@@ -32,22 +32,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        Jminventory = new javax.swing.JMenu();
+        jStocksProducts = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        JProducts = new javax.swing.JMenu();
+        JNewProducto = new javax.swing.JMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        JEditProduct = new javax.swing.JMenuItem();
+        jSeparator9 = new javax.swing.JPopupMenu.Separator();
+        JDeleteProduct = new javax.swing.JMenuItem();
+        JMCustoms = new javax.swing.JMenu();
+        JNewCustom = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        JEditCustom = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        JDeleteCustom = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        JListCustom = new javax.swing.JMenuItem();
+        JMInvoice = new javax.swing.JMenu();
+        JnewInvoice = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
+        JmInvoiceList = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -65,94 +70,109 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGap(0, 648, Short.MAX_VALUE)
         );
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/inventory.png"))); // NOI18N
-        jMenu3.setText("Inventory");
+        Jminventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/inventory.png"))); // NOI18N
+        Jminventory.setText("Inventory");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/jewelry.png"))); // NOI18N
-        jMenuItem2.setText("Stocks Products");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jStocksProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/jewelry.png"))); // NOI18N
+        jStocksProducts.setText("Stocks Products");
+        jStocksProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jStocksProductsActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem2);
-        jMenu3.add(jSeparator6);
+        Jminventory.add(jStocksProducts);
+        Jminventory.add(jSeparator6);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/products.png"))); // NOI18N
-        jMenu4.setText("Products");
+        JProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/products.png"))); // NOI18N
+        JProducts.setText("Products");
 
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/plus.png"))); // NOI18N
-        jMenuItem10.setText("New Product");
-        jMenu4.add(jMenuItem10);
+        JNewProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/plus.png"))); // NOI18N
+        JNewProducto.setText("New Product");
+        JProducts.add(JNewProducto);
 
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/edit product.png"))); // NOI18N
-        jMenuItem11.setText("Edit Product");
-        jMenu4.add(jMenuItem11);
+        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
+        JProducts.add(jSeparator8);
 
-        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/delete product.png"))); // NOI18N
-        jMenuItem12.setText("Delete Product");
-        jMenu4.add(jMenuItem12);
+        JEditProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/edit product.png"))); // NOI18N
+        JEditProduct.setText("Edit Product");
+        JProducts.add(JEditProduct);
 
-        jMenu3.add(jMenu4);
+        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+        JProducts.add(jSeparator9);
 
-        jMenuBar1.add(jMenu3);
+        JDeleteProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/delete product.png"))); // NOI18N
+        JDeleteProduct.setText("Delete Product");
+        JProducts.add(JDeleteProduct);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/customs.png"))); // NOI18N
-        jMenu1.setText("Customs");
+        Jminventory.add(JProducts);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new customer.png"))); // NOI18N
-        jMenuItem4.setText("New Custom");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(Jminventory);
+
+        JMCustoms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/customs.png"))); // NOI18N
+        JMCustoms.setText("Customs");
+
+        JNewCustom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new customer.png"))); // NOI18N
+        JNewCustom.setText("New Custom");
+        JNewCustom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                JNewCustomActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        JMCustoms.add(JNewCustom);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/edit.png"))); // NOI18N
-        jMenuItem5.setText("Edit Custom");
-        jMenu1.add(jMenuItem5);
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        JMCustoms.add(jSeparator4);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/delete customer.png"))); // NOI18N
-        jMenuItem6.setText("Delete Custom");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        JEditCustom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/edit.png"))); // NOI18N
+        JEditCustom.setText("Edit Custom");
+        JMCustoms.add(JEditCustom);
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        JMCustoms.add(jSeparator2);
+
+        JDeleteCustom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/delete customer.png"))); // NOI18N
+        JDeleteCustom.setText("Delete Custom");
+        JDeleteCustom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                JDeleteCustomActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        JMCustoms.add(JDeleteCustom);
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jMenu1.add(jSeparator1);
+        JMCustoms.add(jSeparator1);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/list customers.png"))); // NOI18N
-        jMenuItem3.setText("List Custom");
-        jMenu1.add(jMenuItem3);
+        JListCustom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/list customers.png"))); // NOI18N
+        JListCustom.setText("List Custom");
+        JMCustoms.add(JListCustom);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(JMCustoms);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new Invoice.png"))); // NOI18N
-        jMenu2.setText("Invoice");
+        JMInvoice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new Invoice.png"))); // NOI18N
+        JMInvoice.setText("Invoice");
 
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new Invoice.png"))); // NOI18N
-        jMenuItem8.setText("New Invoice");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        JnewInvoice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new Invoice.png"))); // NOI18N
+        JnewInvoice.setText("New Invoice");
+        JnewInvoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                JnewInvoiceActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem8);
+        JMInvoice.add(JnewInvoice);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/list Invoice.png"))); // NOI18N
-        jMenuItem7.setText("Invoice List");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
+        JMInvoice.add(jSeparator7);
+
+        JmInvoiceList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/list Invoice.png"))); // NOI18N
+        JmInvoiceList.setText("Invoice List");
+        JmInvoiceList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                JmInvoiceListActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem7);
+        JMInvoice.add(JmInvoiceList);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(JMInvoice);
 
         setJMenuBar(jMenuBar1);
 
@@ -170,25 +190,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jStocksProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStocksProductsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jStocksProductsActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void JNewCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNewCustomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_JNewCustomActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void JDeleteCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JDeleteCustomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_JDeleteCustomActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void JmInvoiceListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmInvoiceListActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_JmInvoiceListActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void JnewInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JnewInvoiceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_JnewInvoiceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,26 +246,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuItem JDeleteCustom;
+    private javax.swing.JMenuItem JDeleteProduct;
+    private javax.swing.JMenuItem JEditCustom;
+    private javax.swing.JMenuItem JEditProduct;
+    private javax.swing.JMenuItem JListCustom;
+    private javax.swing.JMenu JMCustoms;
+    private javax.swing.JMenu JMInvoice;
+    private javax.swing.JMenuItem JNewCustom;
+    private javax.swing.JMenuItem JNewProducto;
+    private javax.swing.JMenu JProducts;
+    private javax.swing.JMenuItem JmInvoiceList;
+    private javax.swing.JMenu Jminventory;
+    private javax.swing.JMenuItem JnewInvoice;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
+    private javax.swing.JPopupMenu.Separator jSeparator9;
+    private javax.swing.JMenuItem jStocksProducts;
     // End of variables declaration//GEN-END:variables
 }
