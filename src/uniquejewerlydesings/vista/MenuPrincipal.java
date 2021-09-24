@@ -88,6 +88,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         JNewProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/plus.png"))); // NOI18N
         JNewProducto.setText("New Product");
+        JNewProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JNewProductoActionPerformed(evt);
+            }
+        });
         JProducts.add(JNewProducto);
 
         jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
@@ -191,11 +196,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jStocksProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStocksProductsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jStocksProductsActionPerformed
+        ProductosStock produc = new ProductosStock();
+        produc.setVisible(true);    }//GEN-LAST:event_jStocksProductsActionPerformed
 
     private void JNewCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNewCustomActionPerformed
-        // TODO add your handling code here:
+        RegistroPersona person = new RegistroPersona();
+        person.setVisible(true);
     }//GEN-LAST:event_JNewCustomActionPerformed
 
     private void JDeleteCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JDeleteCustomActionPerformed
@@ -207,8 +213,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_JmInvoiceListActionPerformed
 
     private void JnewInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JnewInvoiceActionPerformed
-        // TODO add your handling code here:
+        Factura fac = new Factura();
+        fac.setVisible(true);
     }//GEN-LAST:event_JnewInvoiceActionPerformed
+
+    private void JNewProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNewProductoActionPerformed
+        
+    }//GEN-LAST:event_JNewProductoActionPerformed
 
     /**
      * @param args the command line arguments
