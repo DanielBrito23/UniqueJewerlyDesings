@@ -10,47 +10,49 @@ package uniquejewerlydesings.modelo;
  * @author corin
  */
 public class Persona {
-    private String idpersona;
-    private String nombre ;
-    private String apellido;
-    private String direccion;
-    private String correo;
-    private String numtelefono;
+  private int id_persona;
+  private String cedula;
+  private String nombres;
+  private String direccion;
+  private String telefono;
+  private String correo;
 
     public Persona() {
     }
 
-    public Persona(String idpersona, String nombre, String apellido, String direccion, String correo, String numtelefono) {
-        this.idpersona = idpersona;
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Persona(int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
+        this.id_persona = id_persona;
+        this.cedula = cedula;
+        this.nombres = nombres;
         this.direccion = direccion;
+        this.telefono = telefono;
         this.correo = correo;
-        this.numtelefono = numtelefono;
     }
 
-    public String getIdpersona() {
-        return idpersona;
+    public int getId_persona() {
+        return id_persona;
     }
 
-    public void setIdpersona(String idpersona) {
-        this.idpersona = idpersona;
+    public void setId_persona(int id_persona) {
+        this.id_persona = id_persona;
     }
 
-    public String getNombre() {
-        return nombre;
+    
+
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getDireccion() {
@@ -61,6 +63,14 @@ public class Persona {
         this.direccion = direccion;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
     public String getCorreo() {
         return correo;
     }
@@ -69,12 +79,12 @@ public class Persona {
         this.correo = correo;
     }
 
-    public String getNumtelefono() {
-        return numtelefono;
+    @Override
+    public String toString() {
+        return "Persona{" + "id_persona=" + id_persona + ", cedula=" + cedula + ", nombres=" + nombres + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + '}';
     }
 
-    public void setNumtelefono(String numtelefono) {
-        this.numtelefono = numtelefono;
-    }
+   
+    
 
    }

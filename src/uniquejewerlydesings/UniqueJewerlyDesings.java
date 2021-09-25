@@ -5,7 +5,8 @@
  */
 package uniquejewerlydesings;
 
-import uniquejewerlydesings.modelo.Conexion;
+
+
 import uniquejewerlydesings.vista.Inicio;
 
 /**
@@ -18,9 +19,8 @@ public class UniqueJewerlyDesings {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Inicio inicio=new Inicio();
-       inicio.setVisible(true);
-        Conexion con=new Conexion();
+       
+       
        
     }
     

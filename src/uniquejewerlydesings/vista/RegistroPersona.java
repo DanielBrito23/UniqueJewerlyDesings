@@ -5,6 +5,10 @@
  */
 package uniquejewerlydesings.vista;
 
+import javax.swing.JOptionPane;
+import uniquejewerlydesings.bo.PersonaBO;
+import uniquejewerlydesings.modelo.Persona;
+
 /**
  *
  * @author corin
@@ -14,8 +18,21 @@ public class RegistroPersona extends javax.swing.JFrame {
     /**
      * Creates new form RegistroPersona
      */
+    private PersonaBO perbo = new PersonaBO();
+
     public RegistroPersona() {
         initComponents();
+        listarPersona();
+        setLocationRelativeTo(null);
+        idMax();
+
+    }
+
+    public void listarPersona() {
+        perbo.listarPersona(tbregistropersona);
+    }
+    public void idMax(){
+        txtid.setText(perbo.getMaxId()+"");
     }
 
     /**
@@ -27,129 +44,235 @@ public class RegistroPersona extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        txtid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        txtcedula = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtname = new javax.swing.JTextField();
-        txtaddress = new javax.swing.JTextField();
+        txtnombres = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtdireccion = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txttelefono = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         txtemail = new javax.swing.JTextField();
-        txtphonenumber = new javax.swing.JTextField();
-        btnsave = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbregistropersona = new javax.swing.JTable();
         btncancel = new javax.swing.JButton();
+        btnmodificar = new javax.swing.JButton();
+        btnlimpiar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btnagregar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Custom / Person Registration");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Names and Surnames :");
+        txtid.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 160, -1));
 
-        jLabel3.setText("Address :");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Custom Registration");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
 
-        jLabel4.setText("Email :");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Id:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        jLabel5.setText("Phone Number :");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Identification:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        txtname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnameActionPerformed(evt);
+        txtcedula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 160, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Names:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 152, -1, 20));
+
+        txtnombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(txtnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 160, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("Address:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+
+        txtdireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 160, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Phone number:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        txttelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 160, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("Email:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+        txtemail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 160, -1));
+
+        tbregistropersona.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbregistropersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbregistropersonaMouseClicked(evt);
             }
         });
+        jScrollPane1.setViewportView(tbregistropersona);
 
-        btnsave.setText("Save");
-        btnsave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsaveActionPerformed(evt);
-            }
-        });
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 440, 290));
 
+        btncancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancel.setText("Cancel");
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtaddress, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(txtemail)
-                            .addComponent(txtphonenumber)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(btnsave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btncancel)
-                .addGap(56, 56, 56))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(txtphonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnsave)
-                    .addComponent(btncancel))
-                .addGap(33, 33, 33))
-        );
+        btnmodificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnmodificar.setText("Modify");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        btnlimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnlimpiar.setText("Clean");
+        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, -1));
+
+        btneliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btneliminar.setText("Delete");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
+
+        btnagregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnagregar.setText("Save");
+        btnagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnameActionPerformed
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btncancelActionPerformed
 
-    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnsaveActionPerformed
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+         if (txtid.getText().isEmpty() || txtcedula.getText().isEmpty() || txtnombres.getText().isEmpty() || txtdireccion.getText().isEmpty()
+                || txttelefono.getText().isEmpty() || txtemail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        } else {
+            Persona per = new Persona();
+            per.setId_persona(Integer.parseInt(txtid.getText()));
+            per.setCedula(txtcedula.getText());
+            per.setNombres(txtnombres.getText());
+            per.setDireccion(txtdireccion.getText());
+            per.setTelefono(txttelefono.getText());
+            per.setCorreo(txtemail.getText());
+            String mensaje = perbo.modificarPersona(per);
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            listarPersona();
+        }
+    }//GEN-LAST:event_btnmodificarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+           if (txtid.getText().isEmpty() || txtcedula.getText().isEmpty() || txtnombres.getText().isEmpty() || txtdireccion.getText().isEmpty()
+                || txttelefono.getText().isEmpty() || txtemail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        } else {
+           
+            String mensaje = perbo.eliminarPersona(Integer.parseInt(txtid.getText()));
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            listarPersona();
+        }
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+
+        limpiar();
+    }//GEN-LAST:event_btnlimpiarActionPerformed
+
+    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+          if (txtid.getText().isEmpty() || txtcedula.getText().isEmpty() || txtnombres.getText().isEmpty() || txtdireccion.getText().isEmpty()
+                || txttelefono.getText().isEmpty() || txtemail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        } else {
+            Persona per = new Persona();
+            per.setId_persona(Integer.parseInt(txtid.getText()));
+            per.setCedula(txtcedula.getText());
+            per.setNombres(txtnombres.getText());
+            per.setDireccion(txtdireccion.getText());
+            per.setTelefono(txttelefono.getText());
+            per.setCorreo(txtemail.getText());
+            String mensaje = perbo.modificarPersona(per);
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            listarPersona();
+        }
+        
+        
+        
+        
+        
+     
+    }//GEN-LAST:event_btnagregarActionPerformed
+
+    private void tbregistropersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbregistropersonaMouseClicked
+        int seleccion=tbregistropersona.rowAtPoint(evt.getPoint());
+         txtid.setText(tbregistropersona.getValueAt(seleccion,0)+"");
+        txtcedula.setText(tbregistropersona.getValueAt(seleccion,1)+"");
+        txtnombres.setText(tbregistropersona.getValueAt(seleccion,2)+"");
+        txtdireccion.setText(tbregistropersona.getValueAt(seleccion,3)+"");
+        txttelefono.setText(tbregistropersona.getValueAt(seleccion,4)+"");
+        txtemail.setText(tbregistropersona.getValueAt(seleccion,5)+"");
+    }//GEN-LAST:event_tbregistropersonaMouseClicked
+
+    public void limpiar() {
+        txtid.setText("");
+        txtcedula.setText("");
+        txtnombres.setText("");
+        txtdireccion.setText("");
+        txttelefono.setText("");
+        txtemail.setText("");
+         idMax();
+    }
 
     /**
      * @param args the command line arguments
@@ -162,7 +285,7 @@ public class RegistroPersona extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -187,18 +310,26 @@ public class RegistroPersona extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnagregar;
     private javax.swing.JButton btncancel;
-    private javax.swing.JButton btnsave;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnlimpiar;
+    private javax.swing.JButton btnmodificar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField txtaddress;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tbregistropersona;
+    private javax.swing.JTextField txtcedula;
+    private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtname;
-    private javax.swing.JTextField txtphonenumber;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtnombres;
+    private javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables
 }
