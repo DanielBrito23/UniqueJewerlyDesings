@@ -200,8 +200,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         produc.setVisible(true);    }//GEN-LAST:event_jStocksProductsActionPerformed
 
     private void JNewCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNewCustomActionPerformed
-        RegistroPersona person = new RegistroPersona();
-        person.setVisible(true);
+        
     }//GEN-LAST:event_JNewCustomActionPerformed
 
     private void JDeleteCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JDeleteCustomActionPerformed
