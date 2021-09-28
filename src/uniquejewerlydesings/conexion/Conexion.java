@@ -31,7 +31,7 @@ import javax.swing.JOptionPane;
  *
  * @author icrv9
  */
-public class Conexion {
+public class Conexion  {
     String urlDatabase = "jdbc:postgresql://localhost:5432/joyeria";
     private static final String pgUsuario = "postgres";
     private static final String pgPass = "1256";//CONTRASEÑA DE LA BASE DE DATOS
@@ -49,7 +49,7 @@ public class Conexion {
 //        }
 //        return conn;
 //    }
-    public Conexion() {
+    public Conexion (){
         //fijar clase de conexion
         try {
             Class.forName("org.postgresql.Driver");
@@ -61,6 +61,7 @@ public class Conexion {
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
 
     }
 

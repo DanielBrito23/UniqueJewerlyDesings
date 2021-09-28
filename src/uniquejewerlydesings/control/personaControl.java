@@ -49,4 +49,6 @@ public class personaControl {
             JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
         }
     }
+    
+      
 }

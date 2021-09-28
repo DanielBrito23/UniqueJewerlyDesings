@@ -5,8 +5,6 @@
  */
 package uniquejewerlydesings;
 
-
-
 import uniquejewerlydesings.DBmodelo.personaDB;
 import uniquejewerlydesings.control.personaControl;
 import uniquejewerlydesings.modelo.Persona;
@@ -23,14 +21,15 @@ public class UniqueJewerlyDesings {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+//        Persona personaModelo = new Persona();
+//        personaDB personaDB = new personaDB ();
+//        PersonaIngreso vistaPersona = new PersonaIngreso();
+//        personaControl control = new personaControl(personaModelo, personaDB, vistaPersona);
+//        control.iniciarControl();
+        Inicio inicio = new Inicio();
+        inicio.setVisible(true);
         
-        Persona personaModelo = new Persona();
-        personaDB personaDB = new personaDB ();
-        PersonaIngreso vistaPersona = new PersonaIngreso();
-        personaControl control = new personaControl(personaModelo, personaDB, vistaPersona);
-        control.iniciarControl();
-       
-       
     }
     
 }
