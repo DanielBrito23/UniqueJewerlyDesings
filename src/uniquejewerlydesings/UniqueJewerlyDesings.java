@@ -6,8 +6,10 @@
 package uniquejewerlydesings;
 
 import uniquejewerlydesings.DBmodelo.personaDB;
+import uniquejewerlydesings.control.facturaControl;
 import uniquejewerlydesings.control.personaControl;
 import uniquejewerlydesings.modelo.Persona;
+import uniquejewerlydesings.vista.Factura;
 import uniquejewerlydesings.vista.Inicio;
 import uniquejewerlydesings.vista.PersonaIngreso;
 
@@ -27,8 +29,8 @@ public class UniqueJewerlyDesings {
 //        PersonaIngreso vistaPersona = new PersonaIngreso();
 //        personaControl control = new personaControl(personaModelo, personaDB, vistaPersona);
 //        control.iniciarControl();
-        Inicio inicio = new Inicio();
-        inicio.setVisible(true);
+        facturaControl control = new facturaControl();
+        control.iniciarControl();
         
     }
     
