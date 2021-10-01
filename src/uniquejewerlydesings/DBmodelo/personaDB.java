@@ -10,6 +10,8 @@ import uniquejewerlydesings.conexion.Conexion;
 import uniquejewerlydesings.modelo.Persona;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,7 +28,6 @@ public class personaDB extends Persona {
     String sql = "";
 
 // metodo para ingresar una persona 
-    
     public boolean insertarPersona() {
 
         conn = new Conexion();
@@ -41,7 +42,30 @@ public class personaDB extends Persona {
             return false;
         }
     }
-     
+    //metodo para listar a una persona 
+    public List<Persona> listaPersonas() throws SQLException {
+        List<Persona> listaPersonas = new ArrayList<Persona>();
+         sql = "SELECT * FROM persona";
+        
+        ResultSet rs = conn.query(sql);
+        
+        try {
 
-    
+            while (rs.next()) {
+                Persona p = new Persona();
+                p.setId_persona(rs.getInt("id_persona"));
+                p.setCedula(rs.getString("cedula"));
+                p.setNombres(rs.getString("nombres"));
+                p.setDireccion(rs.getString("direccion"));
+                p.setTelefono(rs.getString("telefono"));
+                p.setCorreo(rs.getString("correo"));
+                listaPersonas.add(p);
+            }
+            rs.close();
+            return listaPersonas;
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }

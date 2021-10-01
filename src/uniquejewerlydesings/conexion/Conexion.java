@@ -9,8 +9,6 @@ package uniquejewerlydesings.conexion;
  *
  * @author LENOVO
  */
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -102,6 +100,7 @@ public class Conexion  {
             rst = st.executeQuery(sql);
             return rst;
         } catch (SQLException ex) {
+            System.out.println("error al listar"+ex.getMessage());
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
