@@ -42,30 +42,7 @@ public class personaDB extends Persona {
             return false;
         }
     }
-    //metodo para listar a una persona 
-    public List<Persona> listaPersonas() throws SQLException {
-        List<Persona> listaPersonas = new ArrayList<Persona>();
-         sql = "SELECT * FROM persona";
-        
-        ResultSet rs = conn.query(sql);
-        
-        try {
 
-            while (rs.next()) {
-                Persona p = new Persona();
-                p.setId_persona(rs.getInt("id_persona"));
-                p.setCedula(rs.getString("cedula"));
-                p.setNombres(rs.getString("nombres"));
-                p.setDireccion(rs.getString("direccion"));
-                p.setTelefono(rs.getString("telefono"));
-                p.setCorreo(rs.getString("correo"));
-                listaPersonas.add(p);
-            }
-            rs.close();
-            return listaPersonas;
-        } catch (SQLException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-    }
+    //metodo para listar a una persona 
+
 }

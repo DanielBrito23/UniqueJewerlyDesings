@@ -6,6 +6,7 @@
 package uniquejewerlydesings.vista;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -42,7 +43,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         txtDireccion = new javax.swing.JTextField();
-        txtid = new javax.swing.JTextField();
+        txtidpersona = new javax.swing.JTextField();
         txtNombres = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,6 +51,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +67,14 @@ public class RegistroProveedor extends javax.swing.JFrame {
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsbotones/guardar.png"))); // NOI18N
         btnGuardar.setText("Save");
+
+        txtidpersona.setEditable(false);
+        txtidpersona.setBackground(new java.awt.Color(204, 204, 204));
+        txtidpersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidpersonaActionPerformed(evt);
+            }
+        });
 
         txtNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +98,9 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsbotones/cancel.png"))); // NOI18N
         jButton1.setText("Cancel");
 
+        txtID.setEditable(false);
+        txtID.setBackground(new java.awt.Color(204, 204, 204));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -96,7 +109,9 @@ public class RegistroProveedor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -115,19 +130,23 @@ public class RegistroProveedor extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtid)
                             .addComponent(txtCedula)
-                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCorreo)
                             .addComponent(txtDireccion)
-                            .addComponent(txtNombres))))
+                            .addComponent(txtNombres)
+                            .addComponent(txtTelefono)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtidpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
@@ -135,7 +154,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtidpersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -236,6 +255,31 @@ public class RegistroProveedor extends javax.swing.JFrame {
         return jLabel5;
     }
 
+    public JTextField getTxtID() {
+        return txtID;
+    }
+
+    public void setTxtID(JTextField txtID) {
+        this.txtID = txtID;
+    }
+
+    public JTextField getTxtid() {
+        return txtidpersona;
+    }
+
+    public void setTxtid(JTextField txtid) {
+        this.txtidpersona = txtid;
+    }
+
+    public JTextField getTxtidpersona() {
+        return txtidpersona;
+    }
+
+    public void setTxtidpersona(JTextField txtidpersona) {
+        this.txtidpersona = txtidpersona;
+    }
+
+    
     public void setjLabel5(JLabel jLabel5) {
         this.jLabel5 = jLabel5;
     }
@@ -289,11 +333,11 @@ public class RegistroProveedor extends javax.swing.JFrame {
     }
 
     public JTextField getTxtId() {
-        return txtid;
+        return txtidpersona;
     }
 
     public void setTxtId(JTextField txtID) {
-        this.txtid = txtID;
+        this.txtidpersona = txtID;
     }
 
     public JTextField getTxtNombres() {
@@ -312,9 +356,15 @@ public class RegistroProveedor extends javax.swing.JFrame {
         this.txtTelefono = txtTelefono;
     }
 
+    
+
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombresActionPerformed
+
+    private void txtidpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidpersonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidpersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,8 +416,9 @@ public class RegistroProveedor extends javax.swing.JFrame {
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombres;
     private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtidpersona;
     // End of variables declaration//GEN-END:variables
 }

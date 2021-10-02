@@ -36,6 +36,8 @@ public class UniqueJewerlyDesings {
        
         proveedorControl control=new proveedorControl(proveedorModelo, proveedorDB, vistaProveedor);
         control.iniciarControl();
+        
+        
     }
 
 }

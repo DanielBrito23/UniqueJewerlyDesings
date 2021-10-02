@@ -8,8 +8,9 @@
             <file>file:/C:/Users/corin/OneDrive/Documenti/Immagini/Desktop/JOYERIA/Joyeria/UniqueJewerlyDesings/src/uniquejewerlydesings/UniqueJewerlyDesings.java</file>
             <file>file:/C:/Users/corin/OneDrive/Documenti/Immagini/Desktop/JOYERIA/Joyeria/UniqueJewerlyDesings/src/uniquejewerlydesings/vista/CompraProveedor.java</file>
             <file>file:/C:/Users/corin/OneDrive/Documenti/Immagini/Desktop/JOYERIA/Joyeria/UniqueJewerlyDesings/src/uniquejewerlydesings/conexion/Conexion.java</file>
-            <file>file:/C:/Users/corin/OneDrive/Documenti/Immagini/Desktop/JOYERIA/Joyeria/UniqueJewerlyDesings/src/uniquejewerlydesings/modelo/Cliente.java</file>
-            <file>file:/C:/Users/corin/OneDrive/Documenti/Immagini/Desktop/JOYERIA/Joyeria/UniqueJewerlyDesings/src/uniquejewerlydesings/vista/ListaPersonas.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documenti/Immagini/Desktop/JOYERIA/Joyeria/UniqueJewerlyDesings/src/uniquejewerlydesings/vista/RegistroProveedor.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documenti/Immagini/Desktop/JOYERIA/Joyeria/UniqueJewerlyDesings/src/uniquejewerlydesings/DBmodelo/proveedorDB.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documenti/Immagini/Desktop/JOYERIA/Joyeria/UniqueJewerlyDesings/src/uniquejewerlydesings/control/proveedorControl.java</file>
         </group>
     </open-files>
 </project-private>
