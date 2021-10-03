@@ -8,6 +8,7 @@ package uniquejewerlydesings.vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +24,15 @@ public class Inicio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         //jjj
     }
+
+    public JButton getBtnstart() {
+        return btnstart;
+    }
+
+    public void setBtnstart(JButton btnstart) {
+        this.btnstart = btnstart;
+    }
+    
 
     /**
      * This method is called from within the constructor to cccinitialize the form.
@@ -88,9 +98,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btncloseActionPerformed
 
     private void btnstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstartActionPerformed
-        MenuPrincipal abrir =new MenuPrincipal();
-        abrir.setVisible(true);
-       dispose();
+     
         
     }//GEN-LAST:event_btnstartActionPerformed
 

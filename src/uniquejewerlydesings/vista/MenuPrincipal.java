@@ -5,6 +5,9 @@
  */
 package uniquejewerlydesings.vista;
 
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+
 /**
  *
  * @author corin
@@ -17,6 +20,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    public JMenuItem getBtnNewCustom() {
+        return btnNewCustom;
+    }
+
+    public void setBtnNewCustom(JMenuItem btnNewCustom) {
+        this.btnNewCustom = btnNewCustom;
+    }
+
+    public JButton getBtnTest() {
+        return btnTest;
+    }
+
+    public void setBtnTest(JButton btnTest) {
+        this.btnTest = btnTest;
     }
 
     /**
@@ -32,6 +51,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
+        btnTest = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Jminventory = new javax.swing.JMenu();
         jStocksProducts = new javax.swing.JMenuItem();
@@ -43,7 +63,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JPopupMenu.Separator();
         JDeleteProduct = new javax.swing.JMenuItem();
         JMCustoms = new javax.swing.JMenu();
-        JNewCustom = new javax.swing.JMenuItem();
+        btnNewCustom = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         JEditCustom = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -60,15 +80,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Unique Jewerly Desings");
 
+        btnTest.setText("test");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1017, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(616, Short.MAX_VALUE)
+                .addComponent(btnTest)
+                .addGap(350, 350, 350))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(btnTest)
+                .addContainerGap(510, Short.MAX_VALUE))
         );
 
         Jminventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/inventory.png"))); // NOI18N
@@ -117,14 +145,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         JMCustoms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/customs.png"))); // NOI18N
         JMCustoms.setText("Customs");
 
-        JNewCustom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new customer.png"))); // NOI18N
-        JNewCustom.setText("New Custom");
-        JNewCustom.addActionListener(new java.awt.event.ActionListener() {
+        btnNewCustom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new customer.png"))); // NOI18N
+        btnNewCustom.setText("New Custom");
+        btnNewCustom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JNewCustomActionPerformed(evt);
+                btnNewCustomActionPerformed(evt);
             }
         });
-        JMCustoms.add(JNewCustom);
+        JMCustoms.add(btnNewCustom);
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
         JMCustoms.add(jSeparator4);
@@ -200,9 +228,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ProductosStock produc = new ProductosStock();
         produc.setVisible(true);    }//GEN-LAST:event_jStocksProductsActionPerformed
 
-    private void JNewCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNewCustomActionPerformed
+    private void btnNewCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCustomActionPerformed
         
-    }//GEN-LAST:event_JNewCustomActionPerformed
+    }//GEN-LAST:event_btnNewCustomActionPerformed
 
     private void JDeleteCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JDeleteCustomActionPerformed
         // TODO add your handling code here:
@@ -264,12 +292,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem JListCustom;
     private javax.swing.JMenu JMCustoms;
     private javax.swing.JMenu JMInvoice;
-    private javax.swing.JMenuItem JNewCustom;
     private javax.swing.JMenuItem JNewProducto;
     private javax.swing.JMenu JProducts;
     private javax.swing.JMenuItem JmInvoiceList;
     private javax.swing.JMenu Jminventory;
     private javax.swing.JMenuItem JnewInvoice;
+    private javax.swing.JMenuItem btnNewCustom;
+    private javax.swing.JButton btnTest;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
