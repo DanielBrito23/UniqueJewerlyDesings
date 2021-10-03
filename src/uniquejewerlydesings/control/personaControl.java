@@ -30,6 +30,7 @@ public class personaControl {
         //abrir la ventana
         vistaPersona.setVisible(true);
         vistaPersona.setLocationRelativeTo(null);
+        vistaPersona.getTxtID().setText(String.valueOf(idper()));
         
         
         //acciones a los botones de la vistaPersona
@@ -49,6 +50,9 @@ public class personaControl {
             JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
         }
     }
-    
+      public int idper() {
+      int id=personaDB.id_autoper();
+         return id;
+    }
       
 }

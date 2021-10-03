@@ -30,13 +30,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.btnNewCustom = btnNewCustom;
     }
 
-    public JButton getBtnTest() {
-        return btnTest;
-    }
-
-    public void setBtnTest(JButton btnTest) {
-        this.btnTest = btnTest;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,7 +44,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
-        btnTest = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Jminventory = new javax.swing.JMenu();
         jStocksProducts = new javax.swing.JMenuItem();
@@ -80,23 +72,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Unique Jewerly Desings");
 
-        btnTest.setText("test");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(616, Short.MAX_VALUE)
-                .addComponent(btnTest)
-                .addGap(350, 350, 350))
+            .addGap(0, 1015, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(btnTest)
-                .addContainerGap(510, Short.MAX_VALUE))
+            .addGap(0, 646, Short.MAX_VALUE)
         );
 
         Jminventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/inventory.png"))); // NOI18N
@@ -298,7 +282,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu Jminventory;
     private javax.swing.JMenuItem JnewInvoice;
     private javax.swing.JMenuItem btnNewCustom;
-    private javax.swing.JButton btnTest;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
