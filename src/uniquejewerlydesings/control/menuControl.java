@@ -6,7 +6,7 @@
 package uniquejewerlydesings.control;
 
 import uniquejewerlydesings.DBmodelo.personaDB;
-import uniquejewerlydesings.modelo.Persona;
+import uniquejewerlydesings.modelo.persona;
 import uniquejewerlydesings.vista.MenuPrincipal;
 import uniquejewerlydesings.vista.PersonaIngreso;
 
@@ -18,7 +18,7 @@ public class menuControl {
     MenuPrincipal menu = new  MenuPrincipal();
     
     //Registro de persona
-    Persona personaModelo = new Persona();
+    persona personaModelo = new persona();
     personaDB personaDB = new personaDB();
     PersonaIngreso vistaPersona = new PersonaIngreso();
     personaControl controlPersona = new personaControl(personaModelo, personaDB, vistaPersona);

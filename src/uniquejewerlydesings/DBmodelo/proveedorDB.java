@@ -10,15 +10,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import uniquejewerlydesings.conexion.Conexion;
-import uniquejewerlydesings.modelo.Persona;
-import uniquejewerlydesings.modelo.Proveedor;
+import uniquejewerlydesings.modelo.persona;
+import uniquejewerlydesings.modelo.proveedor;
 import uniquejewerlydesings.vista.RegistroProveedor;
 
 /**
  *
  * @author corin
  */
-public class proveedorDB extends Proveedor {
+public class proveedorDB extends proveedor {
 
     Conexion conn;
     PreparedStatement ps;
@@ -32,7 +32,8 @@ public class proveedorDB extends Proveedor {
 
         conn = new Conexion();
         sql = "insert into persona (id_persona, cedula, nombres, direccion, telefono, correo) "
-                + "values (" + getId_persona() + ", '" + getCedula() + "', '" + getNombres() + "','" + getDireccion() + "','" + getTelefono() + "','" + getCorreo() + "');insert into proveedor (id_proveedor,id_persona)"
+                + "values (" + getId_persona() + ", '" + getCedula() + "', '" + getNombres() + "','" + getDireccion() + "','" + getTelefono() + "','" + getCorreo() + "');"
+                + "insert into proveedor (id_proveedor,id_persona)"
                 + "values (" + getId_proveedor() + "," + getId_persona() + ");"; 
         System.out.println("insert Persona: " + sql);
    
@@ -44,6 +45,7 @@ public class proveedorDB extends Proveedor {
             return false;
         }
     }
+    
     public int id_auto(){
         conn = new Conexion();
         int id=1;

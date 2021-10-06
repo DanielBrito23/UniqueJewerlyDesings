@@ -9,14 +9,14 @@ package uniquejewerlydesings.modelo;
  *
  * @author corin
  */
-public class Cliente {
+public class cliente {
     private int id_cliente;
     private int id_persona;
 
-    public Cliente() {
+    public cliente() {
     }
 
-    public Cliente(int id_cliente, int id_persona) {
+    public cliente(int id_cliente, int id_persona) {
         this.id_cliente = id_cliente;
         this.id_persona = id_persona;
     }

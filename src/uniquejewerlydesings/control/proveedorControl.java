@@ -8,7 +8,7 @@ package uniquejewerlydesings.control;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import uniquejewerlydesings.DBmodelo.proveedorDB;
-import uniquejewerlydesings.modelo.Proveedor;
+import uniquejewerlydesings.modelo.proveedor;
 import uniquejewerlydesings.vista.RegistroProveedor;
 
 /**
@@ -16,11 +16,11 @@ import uniquejewerlydesings.vista.RegistroProveedor;
  * @author corin
  */
 public class proveedorControl {
-     private Proveedor proveedorModelo;
+     private proveedor proveedorModelo;
     private proveedorDB proveedorDB;
     private RegistroProveedor vistaProveedor;
 
-    public proveedorControl(Proveedor proveedorModelo, proveedorDB proveedorDB, RegistroProveedor vistaProveedor) {
+    public proveedorControl(proveedor proveedorModelo, proveedorDB proveedorDB, RegistroProveedor vistaProveedor) {
         this.proveedorModelo = proveedorModelo;
         this.proveedorDB = proveedorDB;
         this.vistaProveedor = vistaProveedor;

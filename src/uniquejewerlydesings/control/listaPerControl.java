@@ -16,7 +16,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import uniquejewerlydesings.DBmodelo.personaDB;
-import uniquejewerlydesings.modelo.Persona;
+import uniquejewerlydesings.modelo.persona;
 import uniquejewerlydesings.vista.ListaPersonas;
 
 /**
@@ -28,7 +28,7 @@ public class listaPerControl {
     ListaPersonas vistaLis;
     DefaultTableModel modeloTab;
     personaDB db;
-    Persona per;
+    persona per;
     int fila;
 
     public void iniciarControl() {
@@ -40,7 +40,7 @@ public class listaPerControl {
 
     }
 
-    public listaPerControl(ListaPersonas vistaLis, personaDB db, Persona per) {
+    public listaPerControl(ListaPersonas vistaLis, personaDB db, persona per) {
         this.vistaLis = vistaLis;
         this.db = db;
         this.per = per;

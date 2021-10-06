@@ -5,21 +5,25 @@
  */
 package uniquejewerlydesings;
 
+import uniquejewerlydesings.DBmodelo.empresaDB;
 import uniquejewerlydesings.DBmodelo.personaDB;
 import uniquejewerlydesings.DBmodelo.proveedorDB;
+import uniquejewerlydesings.control.empresaControl;
 import uniquejewerlydesings.control.facturaControl;
 import uniquejewerlydesings.control.inicioControl;
 import uniquejewerlydesings.control.listaPerControl;
 import uniquejewerlydesings.control.menuControl;
 import uniquejewerlydesings.control.personaControl;
 import uniquejewerlydesings.control.proveedorControl;
-import uniquejewerlydesings.modelo.Persona;
-import uniquejewerlydesings.modelo.Proveedor;
+import uniquejewerlydesings.modelo.empresa;
+import uniquejewerlydesings.modelo.persona;
+import uniquejewerlydesings.modelo.proveedor;
 import uniquejewerlydesings.vista.Factura;
 import uniquejewerlydesings.vista.Inicio;
 import uniquejewerlydesings.vista.ListaPersonas;
 import uniquejewerlydesings.vista.MenuPrincipal;
 import uniquejewerlydesings.vista.PersonaIngreso;
+import uniquejewerlydesings.vista.RegistroEmpresa;
 import uniquejewerlydesings.vista.RegistroProveedor;
 
 /**
@@ -33,11 +37,17 @@ public class UniqueJewerlyDesings {
      */
     public static void main(String[] args) {
 
-        menuControl menuControl = new menuControl();
-        MenuPrincipal vistaMenu = new MenuPrincipal();
-        Inicio vistaInicio = new Inicio();
-        inicioControl controlInicio = new inicioControl(menuControl, vistaMenu, vistaInicio);
-        controlInicio.iniciaControl();
+//        menuControl menuControl = new menuControl();
+//        MenuPrincipal vistaMenu = new MenuPrincipal();
+//        Inicio vistaInicio = new Inicio();
+//        inicioControl controlInicio = new inicioControl(menuControl, vistaMenu, vistaInicio);
+//        controlInicio.iniciaControl();
+        empresa empresaModelo = new empresa();
+        empresaDB empresaDB = new empresaDB();
+        proveedorDB db = new proveedorDB();
+        RegistroEmpresa vistaEmpresa = new RegistroEmpresa();
+        empresaControl control = new empresaControl(empresaModelo, empresaDB, vistaEmpresa, db);
+        control.iniciarControl();
 
     }
 

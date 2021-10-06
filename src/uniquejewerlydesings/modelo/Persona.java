@@ -9,7 +9,7 @@ package uniquejewerlydesings.modelo;
  *
  * @author corin
  */
-public class Persona {
+public class persona {
   private int id_persona;
   private String cedula;
   private String nombres;
@@ -17,10 +17,10 @@ public class Persona {
   private String telefono;
   private String correo;
 
-    public Persona() {
+    public persona() {
     }
 
-    public Persona(int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
+    public persona(int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
         this.id_persona = id_persona;
         this.cedula = cedula;
         this.nombres = nombres;

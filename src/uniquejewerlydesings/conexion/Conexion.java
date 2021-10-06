@@ -114,7 +114,7 @@ public class Conexion  {
             st.close();
             return null;
         } catch (SQLException ex) {
-            System.out.println("Error al ingresar:" + ex.getMessage());
+           
             return ex;
         }
     }//FIN DEL METODO RESULTSET DEL QUERY PARA CONSULTAS
@@ -124,6 +124,7 @@ public class Conexion  {
             return con.prepareStatement(sql);
 
         } catch (SQLException ex) {
+             System.out.println("Error al ingresar:" + ex.getMessage());
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }

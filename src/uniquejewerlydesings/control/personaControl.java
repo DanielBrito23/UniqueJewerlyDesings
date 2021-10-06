@@ -7,7 +7,7 @@ package uniquejewerlydesings.control;
 
 import javax.swing.JOptionPane;
 import uniquejewerlydesings.DBmodelo.personaDB;
-import uniquejewerlydesings.modelo.Persona;
+import uniquejewerlydesings.modelo.persona;
 import uniquejewerlydesings.vista.PersonaIngreso;
 
 /**
@@ -16,11 +16,11 @@ import uniquejewerlydesings.vista.PersonaIngreso;
  */
 public class personaControl {
 
-    private Persona personaModelo;
+    private persona personaModelo;
     private personaDB personaDB;
     private PersonaIngreso vistaPersona;
 
-    public personaControl(Persona personaModelo, personaDB personaDB, PersonaIngreso vistaPersona) {
+    public personaControl(persona personaModelo, personaDB personaDB, PersonaIngreso vistaPersona) {
         this.personaModelo = personaModelo;
         this.personaDB = personaDB;
         this.vistaPersona = vistaPersona;

@@ -7,7 +7,7 @@ package uniquejewerlydesings.DBmodelo;
 
 import java.sql.PreparedStatement;
 import uniquejewerlydesings.conexion.Conexion;
-import uniquejewerlydesings.modelo.Persona;
+import uniquejewerlydesings.modelo.persona;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author LENOVO
  */
-public class personaDB extends Persona {
+public class personaDB extends persona {
 
     Conexion conn;
     PreparedStatement ps;
