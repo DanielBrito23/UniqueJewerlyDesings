@@ -7,8 +7,11 @@ package uniquejewerlydesings.DBmodelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import uniquejewerlydesings.conexion.Conexion;
 import uniquejewerlydesings.modelo.empresa;
+import uniquejewerlydesings.modelo.persona;
 
 /**
  *
@@ -22,18 +25,21 @@ public class empresaDB extends empresa {
     //Variable asignada para el valor de la consulta SQL
     String sql = "";
 
+    ArrayList<persona> listaPersonas;
+    persona per;
 // metodo para ingresar una empresa 
+
     public boolean insertarEmpresa() {
 
         conn = new Conexion();
-     
+
         sql = "insert into empresa (id_empresa,nombre_empresa,direccion_empresa,correo_empresa) "
                 + "values (" + getId_empresa() + ",'" + getNombre_empresa() + "', '" + getDireccion_empresa() + "','" + getCorreo_empresa() + "');"
                 + "insert into proveedor (id_proveedor,id_persona,id_empresa)"
-                + "values (" + getId_proveedor() +  "," + getId_persona()+ ", " + getId_empresa()+ " );";
+                + "values (" + getId_proveedor() + "," + getId_persona() + ", " + getId_empresa() + " );";
         System.out.println("insert empresa: " + sql);
         PreparedStatement ps = conn.getPs(sql);
-       
+
         if (conn.noQuery(sql) == null) {
             return true;
         } else {
@@ -60,5 +66,26 @@ public class empresaDB extends empresa {
             }
         }
         return id;
+    }
+
+    public ArrayList listaPersonas() throws SQLException {
+        listaPersonas = new ArrayList<>();
+        conn = new Conexion();
+
+        try {
+             sql = "select per.id_persona,per.nombres  from persona per, proveedor pro where per.id_persona = pro.id_persona;";
+        ps = conn.conectarBD().prepareStatement(sql);
+        
+        re = ps.executeQuery();
+        conn.cerrarConexion();
+        while (re.next()) {
+            per = new persona(re.getInt(1), re.getString(2));
+            listaPersonas.add(per);
+
+        }
+        } catch (SQLException e) {
+            System.out.println("Error en el combo box: "+e.getMessage());
+        }
+        return listaPersonas;
     }
 }

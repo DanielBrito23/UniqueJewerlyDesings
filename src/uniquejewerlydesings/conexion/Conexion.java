@@ -122,11 +122,21 @@ public class Conexion  {
     public PreparedStatement getPs(String sql) {
         try {
             return con.prepareStatement(sql);
-
         } catch (SQLException ex) {
              System.out.println("Error al ingresar:" + ex.getMessage());
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
+    }
+    
+    public  ResultSet consulta (String sql){
+        ResultSet res = null;
+        try {
+            PreparedStatement pstm = con.prepareStatement(sql);
+            res = pstm.executeQuery();
+        } catch (SQLException e) {
+            System.out.println("Error consulta:" +e.getMessage());
+        }
+        return res;
     }
 }

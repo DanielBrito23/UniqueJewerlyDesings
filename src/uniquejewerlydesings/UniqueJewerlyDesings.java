@@ -5,6 +5,7 @@
  */
 package uniquejewerlydesings;
 
+import java.sql.SQLException;
 import uniquejewerlydesings.DBmodelo.empresaDB;
 import uniquejewerlydesings.DBmodelo.personaDB;
 import uniquejewerlydesings.DBmodelo.proveedorDB;
@@ -35,7 +36,7 @@ public class UniqueJewerlyDesings {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
 //        menuControl menuControl = new menuControl();
 //        MenuPrincipal vistaMenu = new MenuPrincipal();

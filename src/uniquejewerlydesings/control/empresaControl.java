@@ -5,10 +5,14 @@
  */
 package uniquejewerlydesings.control;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import uniquejewerlydesings.DBmodelo.empresaDB;
 import uniquejewerlydesings.DBmodelo.proveedorDB;
 import uniquejewerlydesings.modelo.empresa;
+import uniquejewerlydesings.modelo.persona;
 import uniquejewerlydesings.vista.RegistroEmpresa;
 
 /**
@@ -20,6 +24,10 @@ public class empresaControl {
     private empresaDB empresaDB;
     private RegistroEmpresa vistaEmpresa;
     private proveedorDB db;
+    
+    ArrayList<persona> listaPersonaArray;
+    
+      DefaultComboBoxModel comboBox;
 
     public empresaControl(empresa empresaModelo, empresaDB empresaDB, RegistroEmpresa vistaEmpresa, proveedorDB db) {
         this.empresaModelo = empresaModelo;
@@ -27,7 +35,7 @@ public class empresaControl {
         this.vistaEmpresa = vistaEmpresa;
         this.db = db;
     }
-     public void iniciarControl(){
+     public void iniciarControl() throws SQLException{
         //abrir la ventana
         vistaEmpresa.setVisible(true);
         vistaEmpresa.setLocationRelativeTo(null);
@@ -35,6 +43,7 @@ public class empresaControl {
         vistaEmpresa.getTxtid().setText(String.valueOf(idempre()));
         //acciones a los botones de la vistaPersona
         vistaEmpresa.getBtnguardar().addActionListener(e -> ingreso());
+        llenarComboInstiEduc();
     }
     
     public void ingreso() {
@@ -43,7 +52,6 @@ public class empresaControl {
         empresaDB.setNombre_empresa(vistaEmpresa.getTxtnombreemp().getText());
         empresaDB.setDireccion_empresa(vistaEmpresa.getTxtdirecemp().getText());
         empresaDB.setCorreo_empresa(vistaEmpresa.getTxtemailemp().getText());
-        empresaDB.setId_persona(Integer.parseInt(vistaEmpresa.getTxtCodPer().getText()));
         if (empresaDB.insertarEmpresa()) {
             JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
         } else {
@@ -58,5 +66,17 @@ public class empresaControl {
         int id=db.id_auto();
          return id;
         
+    }
+    
+     public void llenarComboInstiEduc() throws SQLException {
+        comboBox = new DefaultComboBoxModel();
+        empresaDB = new empresaDB();
+        listaPersonaArray = empresaDB.listaPersonas();
+        for (persona p : listaPersonaArray) {
+            comboBox.addElement(p.getNombres());
+            // como recoger este numero y poner en el insert
+            System.out.println(p.getId_persona());
+        }
+        vistaEmpresa.getComboPersonas().setModel(comboBox);
     }
 }
