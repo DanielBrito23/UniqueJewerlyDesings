@@ -43,6 +43,7 @@ public class empresaControl {
         empresaDB.setNombre_empresa(vistaEmpresa.getTxtnombreemp().getText());
         empresaDB.setDireccion_empresa(vistaEmpresa.getTxtdirecemp().getText());
         empresaDB.setCorreo_empresa(vistaEmpresa.getTxtemailemp().getText());
+        empresaDB.setId_persona(Integer.parseInt(vistaEmpresa.getTxtCodPer().getText()));
         if (empresaDB.insertarEmpresa()) {
             JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
         } else {
