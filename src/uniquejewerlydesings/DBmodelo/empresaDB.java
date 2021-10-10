@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import uniquejewerlydesings.conexion.Conexion;
 import uniquejewerlydesings.modelo.empresa;
 import uniquejewerlydesings.modelo.persona;
+import uniquejewerlydesings.vista.RegistroEmpresa;
 
 /**
  *
@@ -27,16 +28,20 @@ public class empresaDB extends empresa {
 
     ArrayList<persona> listaPersonas;
     persona per;
+
+    private RegistroEmpresa vistaEmpresa;
 // metodo para ingresar una empresa 
 
     public boolean insertarEmpresa() {
-
+        
+        per = new persona();
+        String codigoPersona;
+        codigoPersona = vistaEmpresa.getComboPersonas().getItemAt(vistaEmpresa.getComboPersonas().getSelectedIndex()+per.getId_persona());
         conn = new Conexion();
-
         sql = "insert into empresa (id_empresa,nombre_empresa,direccion_empresa,correo_empresa) "
                 + "values (" + getId_empresa() + ",'" + getNombre_empresa() + "', '" + getDireccion_empresa() + "','" + getCorreo_empresa() + "');"
                 + "insert into proveedor (id_proveedor,id_persona,id_empresa)"
-                + "values (" + getId_proveedor() + "," + getId_persona() + ", " + getId_empresa() + " );";
+                + "values (" + getId_proveedor() + "," + codigoPersona + ", " + getId_empresa() + " );";
         System.out.println("insert empresa: " + sql);
         PreparedStatement ps = conn.getPs(sql);
 
@@ -73,18 +78,18 @@ public class empresaDB extends empresa {
         conn = new Conexion();
 
         try {
-             sql = "select per.id_persona,per.nombres  from persona per, proveedor pro where per.id_persona = pro.id_persona;";
-        ps = conn.conectarBD().prepareStatement(sql);
-        
-        re = ps.executeQuery();
-        conn.cerrarConexion();
-        while (re.next()) {
-            per = new persona(re.getInt(1), re.getString(2));
-            listaPersonas.add(per);
+            sql = "select per.id_persona,per.nombres  from persona per, proveedor pro where per.id_persona = pro.id_persona;";
+            ps = conn.conectarBD().prepareStatement(sql);
 
-        }
+            re = ps.executeQuery();
+            conn.cerrarConexion();
+            while (re.next()) {
+                per = new persona(re.getInt(1), re.getString(2));
+                listaPersonas.add(per);
+
+            }
         } catch (SQLException e) {
-            System.out.println("Error en el combo box: "+e.getMessage());
+            System.out.println("Error en el combo box: " + e.getMessage());
         }
         return listaPersonas;
     }

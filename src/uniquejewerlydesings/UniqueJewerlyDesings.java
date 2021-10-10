@@ -12,6 +12,7 @@ import uniquejewerlydesings.DBmodelo.proveedorDB;
 import uniquejewerlydesings.control.empresaControl;
 import uniquejewerlydesings.control.facturaControl;
 import uniquejewerlydesings.control.inicioControl;
+import uniquejewerlydesings.control.listaControl;
 import uniquejewerlydesings.control.listaPerControl;
 import uniquejewerlydesings.control.menuControl;
 import uniquejewerlydesings.control.personaControl;
@@ -43,13 +44,9 @@ public class UniqueJewerlyDesings {
 //        Inicio vistaInicio = new Inicio();
 //        inicioControl controlInicio = new inicioControl(menuControl, vistaMenu, vistaInicio);
 //        controlInicio.iniciaControl();
-        empresa empresaModelo = new empresa();
-        empresaDB empresaDB = new empresaDB();
-        proveedorDB db = new proveedorDB();
-        RegistroEmpresa vistaEmpresa = new RegistroEmpresa();
-        empresaControl control = new empresaControl(empresaModelo, empresaDB, vistaEmpresa, db);
-        control.iniciarControl();
-
+       ListaPersonas vista = new ListaPersonas();
+       listaControl control = new listaControl(vista);
+       vista.setVisible(true);
     }
 
 }

@@ -163,6 +163,6 @@ public class ListaPersonas extends javax.swing.JFrame {
     private javax.swing.JButton btncargar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabla;
+    public javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
