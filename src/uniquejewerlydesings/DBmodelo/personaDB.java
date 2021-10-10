@@ -70,29 +70,27 @@ public class personaDB extends persona {
         return id;
     }
 
-    public List listar() {
-        List<persona> datos = new ArrayList<>();
-        conn = new Conexion();
+    public List<persona> listaPersonas() throws SQLException {
+        List<persona> datos = new ArrayList<persona>();
+        String sql = "select * from persona";
+        ResultSet rs = conn.query(sql);
         try {
-            String sql = "select * from persona";
-            ps = conn.conectarBD().prepareStatement(sql);
-
-            re = ps.executeQuery();
-            conn.cerrarConexion();
-            while (re.next()) {
+            while (rs.next()) {
                 persona p = new persona();
-                p.setId_persona(re.getInt(1));
-                p.setCedula(re.getString(2));
-                p.setNombres(re.getString(3));
-                p.setCorreo(re.getString(4));
-                p.setTelefono(re.getString(5));
-                p.setDireccion(re.getString(3));
+                p.setId_persona(rs.getInt("id_persona"));
+                p.setCedula(rs.getString("cedula"));
+                p.setNombres(rs.getString("nombres"));
+                p.setCorreo(rs.getString("direccion"));
+                p.setTelefono(rs.getString("telefono"));
+                p.setDireccion(rs.getString("correo"));
                 datos.add(p);
             }
+            rs.close();
+            return listaPersonas;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "error tabla: " + e.getMessage());
+            return null;
         }
-        return listaPersonas;
     }
 
 }

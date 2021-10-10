@@ -29,13 +29,16 @@ import javax.swing.JOptionPane;
  *
  * @author icrv9
  */
-public class Conexion  {
+public class Conexion {
+
     String urlDatabase = "jdbc:postgresql://localhost:5432/joyeria";
     private static final String pgUsuario = "postgres";
     private static final String pgPass = "1256";//CONTRASEÑA DE LA BASE DE DATOS
-   
+
+    private Statement st;// comando:sql
+    private ResultSet rs;//Resultados de la consulta
+
     private Connection con;//CONEXION
-    private Statement st;//COMANDOS SQL
     private ResultSet rst;//RESULTADO DE LAS CONSULTAS
 
 //    public Connection getConection() {
@@ -47,7 +50,7 @@ public class Conexion  {
 //        }
 //        return conn;
 //    }
-    public Conexion (){
+    public Conexion() {
         //fijar clase de conexion
         try {
             Class.forName("org.postgresql.Driver");
@@ -59,7 +62,6 @@ public class Conexion  {
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
 
     }
 
@@ -93,18 +95,17 @@ public class Conexion  {
         }
     }
 
-    public ResultSet query(String sql) {//CONSULTAS 
+    public ResultSet query(String sql) {
         try {
-            conectarBD();
             st = con.createStatement();
-            rst = st.executeQuery(sql);
-            return rst;
+            rs = st.executeQuery(sql);
+            return rs;
         } catch (SQLException ex) {
-            System.out.println("error al listar"+ex.getMessage());
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    }//FIN DEL METODO RESULTSET DEL QUERY PARA CONSULTAS
+    }
+    
 
     public SQLException noQuery(String sql) {
 
@@ -114,7 +115,7 @@ public class Conexion  {
             st.close();
             return null;
         } catch (SQLException ex) {
-           
+
             return ex;
         }
     }//FIN DEL METODO RESULTSET DEL QUERY PARA CONSULTAS
@@ -123,19 +124,19 @@ public class Conexion  {
         try {
             return con.prepareStatement(sql);
         } catch (SQLException ex) {
-             System.out.println("Error al ingresar:" + ex.getMessage());
+            System.out.println("Error al ingresar:" + ex.getMessage());
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
-    
-    public  ResultSet consulta (String sql){
+
+    public ResultSet consulta(String sql) {
         ResultSet res = null;
         try {
             PreparedStatement pstm = con.prepareStatement(sql);
             res = pstm.executeQuery();
         } catch (SQLException e) {
-            System.out.println("Error consulta:" +e.getMessage());
+            System.out.println("Error consulta:" + e.getMessage());
         }
         return res;
     }

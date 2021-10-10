@@ -7,7 +7,11 @@ package uniquejewerlydesings.control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import uniquejewerlydesings.DBmodelo.personaDB;
@@ -19,43 +23,53 @@ import uniquejewerlydesings.vista.PersonaIngreso;
  *
  * @author LENOVO
  */
-public class listaControl implements ActionListener {
+public class listaControl {
 
-    persona personaModelo = new persona();
-    personaDB personaDB = new personaDB();
-    ListaPersonas tablaPersona = new ListaPersonas();
-    DefaultTableModel modelo = new DefaultTableModel();
+    private final personaDB modelo;
+    private final ListaPersonas vista;
 
-    public listaControl(ListaPersonas lista) {
-    this.tablaPersona = lista;
-    this.tablaPersona.getBtncargar().addActionListener(this);
+    DefaultTableModel modeloTab;
+
+    public listaControl(personaDB modelo, ListaPersonas vista) {
+        this.modelo = modelo;
+        this.vista = vista;
     }
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == tablaPersona.getBtncargar()) {
-            listar(tablaPersona.getTabla());
+
+    public void iniciaControl() {
+        vista.setVisible(true);
+        cargarLista();
+    }
+
+    private void cargarLista() {
+
+        int canFilas = vista.getTabla().getRowCount();
+        for (int i = canFilas - 1; i >= 0; i--) {
+            modeloTab.removeRow(i);
+
         }
-    }
 
-    public void iniciarControl() {
-        tablaPersona.setVisible(true);
-    }
+        modeloTab = (DefaultTableModel) vista.getTabla().getModel();
+        List<persona> lista;
 
-    public void listar(JTable tabla) {
-        modelo = (DefaultTableModel) tabla.getModel();
-        List<persona> lista = personaDB.listar();
-        Object[] object = new Object[6];
-           for (int i = 0; i < lista.size(); i++) {
-            object[0] = lista.get(i).getId_persona();
-            object[1] = lista.get(i).getCedula();
-            object[2] = lista.get(i).getNombres();
-            object[3] = lista.get(i).getDireccion();
-            object[4] = lista.get(i).getTelefono();
-            object[5] = lista.get(i).getCorreo();
-            modelo.addRow(object);
+        try {
+            lista = modelo.listaPersonas();
+            int columnas = modeloTab.getColumnCount();
+            for (int i = 0; i < lista.size(); i++) {
+                modeloTab.addRow(new Object[columnas]);
+                vista.getTabla().setValueAt(lista.get(i).getId_persona(), i, 0);
+                vista.getTabla().setValueAt(lista.get(i).getCedula(), i, 1);
+                vista.getTabla().setValueAt(lista.get(i).getNombres(), i, 2);
+                vista.getTabla().setValueAt(lista.get(i).getDireccion(), i, 3);
+                vista.getTabla().setValueAt(lista.get(i).getTelefono(), i, 4);
+                vista.getTabla().setValueAt(lista.get(i).getCorreo(), i, 5);
+            }
+            vista.getLbltexto().setText("Cargados: " + lista.size() + " registros");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error Tabla: "+ex.getMessage()+" Causa: "+ex.getCause());
+            Logger.getLogger(listaControl.class.getName()).log(Level.SEVERE, null, ex);
+
         }
-        tablaPersona.getTabla().setModel(modelo);
-    }
 
+    }
 }
