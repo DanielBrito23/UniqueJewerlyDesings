@@ -67,26 +67,5 @@ public class proveedorDB extends proveedor {
         }
         return id;
     }
-     public int id_autoper(){
-        conn = new Conexion();
-        int id=1;
-        try {
-            ps=conn.conectarBD().prepareStatement("select max(id_persona) from persona");
-             re=ps.executeQuery();
-        while(re.next()){
-            id=re.getInt(1)+1;
-        }
-        } catch (Exception e) {
-            System.out.println("error"+e.getMessage());
-        }
-        finally{
-            try {
-                ps.close();
-                re.close();
-            } catch (Exception e) {
-            }
-        }
-        return id;
-    }
-    
+   
 }

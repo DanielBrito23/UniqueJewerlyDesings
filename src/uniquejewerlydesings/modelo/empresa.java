@@ -19,10 +19,15 @@ public class empresa  extends proveedor{
     public empresa() {
     }
 
-    public empresa(int id_proveedor) {
-        super(id_proveedor);
+    public empresa(int id_empresa, String nombre_empresa, String direccion_empresa, String correo_empresa, int id_proveedor, int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
+        super(id_proveedor, id_persona, cedula, nombres, direccion, telefono, correo);
+        this.id_empresa = id_empresa;
+        this.nombre_empresa = nombre_empresa;
+        this.direccion_empresa = direccion_empresa;
+        this.correo_empresa = correo_empresa;
     }
 
+ 
     
 
     public int getId_empresa() {
