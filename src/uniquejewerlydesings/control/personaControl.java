@@ -47,22 +47,40 @@ public class personaControl {
     }
 
     public void ingresoPersona() {
-        personaDB.setId_persona(Integer.parseInt(vistaPersona.getTxtID().getText()));
-        personaDB.setCedula(vistaPersona.getTxtCedula().getText());
-        personaDB.setNombres(vistaPersona.getTxtNombres().getText());
-        personaDB.setDireccion(vistaPersona.getTxtDireccion().getText());
-        personaDB.setTelefono(vistaPersona.getTxtTelefono().getText());
-        personaDB.setCorreo(vistaPersona.getTxtCorreo().getText());
-        if (personaDB.insertarPersona()) {
-            JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
+        if (vistaPersona.getTxtCedula().getText().equals("") || vistaPersona.getTxtNombres().getText().equals("") || vistaPersona.getTxtCorreo().getText().equals("")
+                || vistaPersona.getTxtTelefono().getText().equals("") || vistaPersona.getTxtCorreo().getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "null Text");
         } else {
-            JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
+            personaDB.setId_persona(Integer.parseInt(vistaPersona.getTxtID().getText()));
+            personaDB.setCedula(vistaPersona.getTxtCedula().getText());
+            personaDB.setNombres(vistaPersona.getTxtNombres().getText());
+            personaDB.setDireccion(vistaPersona.getTxtDireccion().getText());
+            personaDB.setTelefono(vistaPersona.getTxtTelefono().getText());
+            personaDB.setCorreo(vistaPersona.getTxtCorreo().getText());
+            if (personaDB.insertarPersona()) {
+                JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
+                limparCampos();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
+            }
         }
     }
 
     public int idper() {
         int id = personaDB.id_autoper();
         return id;
+    }
+    
+    public void limparCampos(){
+        vistaPersona.getTxtCedula().setText("");
+        
+        vistaPersona.getTxtNombres().setText("");
+        
+        vistaPersona.getTxtCorreo().setText("");
+        
+        vistaPersona.getTxtTelefono().setText("");
+        
+        vistaPersona.getTxtDireccion().setText("");
     }
 
 }

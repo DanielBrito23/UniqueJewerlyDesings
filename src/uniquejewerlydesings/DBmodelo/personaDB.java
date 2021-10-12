@@ -86,7 +86,7 @@ public class personaDB extends persona {
                 datos.add(p);
             }
             rs.close();
-            return listaPersonas;
+            return datos;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "error tabla: " + e.getMessage());
             return null;

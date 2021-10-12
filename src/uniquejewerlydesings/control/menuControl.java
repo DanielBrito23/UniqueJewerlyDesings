@@ -15,22 +15,23 @@ import uniquejewerlydesings.vista.PersonaIngreso;
  * @author LENOVO
  */
 public class menuControl {
-    MenuPrincipal menu = new  MenuPrincipal();
-    
+
+    MenuPrincipal menu = new MenuPrincipal();
+
     //Registro de persona
     persona personaModelo = new persona();
     personaDB personaDB = new personaDB();
     PersonaIngreso vistaPersona = new PersonaIngreso();
     personaControl controlPersona = new personaControl(personaModelo, personaDB, vistaPersona);
-    
-    public void iniciarControl(){
-         menu.setVisible(true);
-         
-        menu.getBtnNewCustom().addActionListener(e -> controles());
+
+    public void iniciarControl() {
+        menu.setVisible(true);
+        //accion para que inicie el btn de persona ubicado en el menu item
+        menu.getBtnNewCustom().addActionListener(e -> btnPersona());
     }
-    
-    public void controles(){
+
+    public void btnPersona() {
         controlPersona.iniciarControl();
     }
-    
+
 }

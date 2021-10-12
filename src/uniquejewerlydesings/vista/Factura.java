@@ -398,6 +398,11 @@ public class Factura extends javax.swing.JFrame {
         btnNewUser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsbotones/adduser.png"))); // NOI18N
         btnNewUser.setText("New Customer");
+        btnNewUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewUserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -566,6 +571,10 @@ public class Factura extends javax.swing.JFrame {
     private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidActionPerformed
+
+    private void btnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewUserActionPerformed
 
     /**
      * @param args the command line arguments
