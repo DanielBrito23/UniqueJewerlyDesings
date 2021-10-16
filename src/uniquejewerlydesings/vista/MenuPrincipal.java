@@ -6,6 +6,7 @@
 package uniquejewerlydesings.vista;
 
 import javax.swing.JButton;
+import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 /**
@@ -29,6 +30,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setBtnNewCustom(JMenuItem btnNewCustom) {
         this.btnNewCustom = btnNewCustom;
     }
+
+    public JMenu getBtnProveedor() {
+        return btnProveedor;
+    }
+
+    public void setBtnProveedor(JMenu btnProveedor) {
+        this.btnProveedor = btnProveedor;
+    }
+    
+    
 
 
     /**
@@ -62,7 +73,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         JDeleteCustom = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         JListCustom = new javax.swing.JMenuItem();
-        JMInvoice = new javax.swing.JMenu();
+        btnProveedor = new javax.swing.JMenu();
         JnewInvoice = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         JmInvoiceList = new javax.swing.JMenuItem();
@@ -166,8 +177,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(JMCustoms);
 
-        JMInvoice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new Invoice.png"))); // NOI18N
-        JMInvoice.setText("Invoice");
+        btnProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new Invoice.png"))); // NOI18N
+        btnProveedor.setText("Invoice");
 
         JnewInvoice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/new Invoice.png"))); // NOI18N
         JnewInvoice.setText("New Invoice");
@@ -176,10 +187,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 JnewInvoiceActionPerformed(evt);
             }
         });
-        JMInvoice.add(JnewInvoice);
+        btnProveedor.add(JnewInvoice);
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-        JMInvoice.add(jSeparator7);
+        btnProveedor.add(jSeparator7);
 
         JmInvoiceList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/list Invoice.png"))); // NOI18N
         JmInvoiceList.setText("Invoice List");
@@ -188,9 +199,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 JmInvoiceListActionPerformed(evt);
             }
         });
-        JMInvoice.add(JmInvoiceList);
+        btnProveedor.add(JmInvoiceList);
 
-        jMenuBar1.add(JMInvoice);
+        jMenuBar1.add(btnProveedor);
 
         setJMenuBar(jMenuBar1);
 
@@ -275,13 +286,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem JEditProduct;
     private javax.swing.JMenuItem JListCustom;
     private javax.swing.JMenu JMCustoms;
-    private javax.swing.JMenu JMInvoice;
     private javax.swing.JMenuItem JNewProducto;
     private javax.swing.JMenu JProducts;
     private javax.swing.JMenuItem JmInvoiceList;
     private javax.swing.JMenu Jminventory;
     private javax.swing.JMenuItem JnewInvoice;
     private javax.swing.JMenuItem btnNewCustom;
+    private javax.swing.JMenu btnProveedor;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
