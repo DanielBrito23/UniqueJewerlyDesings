@@ -16,8 +16,7 @@ import uniquejewerlydesings.vista.RegistroProveedor;
  * @author corin
  */
 public class proveedorControl {
-
-    private proveedor proveedorModelo;
+     private proveedor proveedorModelo;
     private proveedorDB proveedorDB;
     private RegistroProveedor vistaProveedor;
 
@@ -27,42 +26,38 @@ public class proveedorControl {
         this.vistaProveedor = vistaProveedor;
     }
 
-    public void iniciarControl() {
+   
+
+    public void iniciarControl(){
         //abrir la ventana
         vistaProveedor.setVisible(true);
         vistaProveedor.setLocationRelativeTo(null);
-        vistaProveedor.getTxtID().setText(String.valueOf(idpro()));
+       vistaProveedor.getTxtID().setText(String.valueOf(idpro()));
         vistaProveedor.getTxtidpersona().setText(String.valueOf(idper()));
         //acciones a los botones de la vistaPersona
         vistaProveedor.getBtnGuardar().addActionListener(e -> ingreso());
     }
-
+    
     public void ingreso() {
-        if (vistaProveedor.getTxtCedula().getText().equals("") || vistaProveedor.getTxtCedula().getText().equals("") || vistaProveedor.getTxtDireccion().getText().equals("")
-                || vistaProveedor.getTxtTelefono().getText().equals("") || vistaProveedor.getTxtCorreo().getText().equals("")) {
+        proveedorDB.setId_proveedor(Integer.parseInt(vistaProveedor.getTxtID().getText()));
+        proveedorDB.setId_persona(Integer.parseInt(vistaProveedor.getTxtId().getText()));
+        proveedorDB.setCedula(vistaProveedor.getTxtCedula().getText());
+        proveedorDB.setNombres(vistaProveedor.getTxtNombres().getText());
+        proveedorDB.setDireccion(vistaProveedor.getTxtDireccion().getText());
+        proveedorDB.setTelefono(vistaProveedor.getTxtTelefono().getText());
+        proveedorDB.setCorreo(vistaProveedor.getTxtCorreo().getText());
+        if (proveedorDB.insertarProveedor()) {
+            JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
         } else {
-            proveedorDB.setId_proveedor(Integer.parseInt(vistaProveedor.getTxtID().getText()));
-            proveedorDB.setId_persona(Integer.parseInt(vistaProveedor.getTxtId().getText()));
-            proveedorDB.setCedula(vistaProveedor.getTxtCedula().getText());
-            proveedorDB.setNombres(vistaProveedor.getTxtNombres().getText());
-            proveedorDB.setDireccion(vistaProveedor.getTxtDireccion().getText());
-            proveedorDB.setTelefono(vistaProveedor.getTxtTelefono().getText());
-            proveedorDB.setCorreo(vistaProveedor.getTxtCorreo().getText());
-            if (proveedorDB.insertarProveedor()) {
-                JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
-            } else {
-                JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
-            }
+            JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
         }
     }
-
     public int idpro() {
-        int id = proveedorDB.id_auto();
-        return id;
+      int id=proveedorDB.id_auto();
+         return id;
     }
-
     public int idper() {
-        int id = proveedorDB.id_autoper();
-        return id;
+      int id=proveedorDB.id_autoper();
+         return id;
     }
 }
