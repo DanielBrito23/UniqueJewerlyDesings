@@ -27,7 +27,7 @@ public class empresaControl {
     private proveedorDB db;
     persona persona = new persona();
     ArrayList<persona> listaPersonaArray;
-
+public static int codper;
     DefaultComboBoxModel comboBox;
 
     public empresaControl(empresa empresaModelo, empresaDB empresaDB, RegistroEmpresa vistaEmpresa, proveedorDB db) {
@@ -54,7 +54,7 @@ public class empresaControl {
         empresaDB.setNombre_empresa(vistaEmpresa.getTxtnombreemp().getText());
         empresaDB.setDireccion_empresa(vistaEmpresa.getTxtdirecemp().getText());
         empresaDB.setCorreo_empresa(vistaEmpresa.getTxtemailemp().getText());
-        empresaDB.setId_persona(Integer.parseInt(vistaEmpresa.getComboPersonas().getSelectedItem().toString()));
+        vistaEmpresa.getComboPersonas().getSelectedIndex();
         if (empresaDB.insertarEmpresa()) {
             JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
         } else {
@@ -80,7 +80,8 @@ public class empresaControl {
         for (persona p : listaPersonaArray) {
             comboBox.addElement(p.getNombres());
             // como recoger este numero y poner en el insert
-            System.out.println(p.getId_persona());
+            comboBox.addElement(codper);codper=p.getId_persona();
+            System.out.println(codper);
         }
         vistaEmpresa.getComboPersonas().setModel(comboBox);
     }

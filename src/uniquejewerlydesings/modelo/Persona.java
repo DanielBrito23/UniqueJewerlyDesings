@@ -20,6 +20,10 @@ public class persona {
     public persona() {
     }
 
+    public persona(int id_persona) {
+        this.id_persona = id_persona;
+    }
+
     public persona(int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
         this.id_persona = id_persona;
         this.cedula = cedula;

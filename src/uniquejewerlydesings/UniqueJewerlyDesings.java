@@ -44,10 +44,15 @@ public class UniqueJewerlyDesings {
 //        Inicio vistaInicio = new Inicio();
 //        inicioControl controlInicio = new inicioControl(menuControl, vistaMenu, vistaInicio);
 //        controlInicio.iniciaControl();
-       personaDB modelo = new personaDB();
-       ListaPersonas vista = new ListaPersonas();
-       listaControl control = new listaControl(modelo, vista);
-       control.iniciaControl();
+//       personaDB modelo = new personaDB();
+//       ListaPersonas vista = new ListaPersonas();
+//       listaControl control = new listaControl(modelo, vista);
+//       control.iniciaControl();
+       empresaDB modelo = new empresaDB();
+       RegistroEmpresa vista=new RegistroEmpresa();
+       proveedorDB db=new proveedorDB();
+       empresaControl control=new empresaControl(modelo, modelo, vista, db);
+       control.iniciarControl();
     }
 
 }
