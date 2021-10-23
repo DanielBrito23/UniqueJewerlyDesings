@@ -40,9 +40,9 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registrar Persona", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tempus Sans ITC", 1, 14))); // NOI18N
 
-        jLabel1.setText("Id empleado");
+        jLabel1.setText("Identification");
 
-        jLabel2.setText("Id Empleado");
+        jLabel2.setText("Identification");
 
         jLabel3.setText("Cargo del empleado");
 

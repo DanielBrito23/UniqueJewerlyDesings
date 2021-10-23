@@ -40,7 +40,7 @@ public class proveedorControl {
     public void ingreso() {
         if (vistaProveedor.getTxtCedula().getText().equals("") || vistaProveedor.getTxtNombres().getText().equals("") || vistaProveedor.getTxtCorreo().getText().equals("")
                 || vistaProveedor.getTxtTelefono().getText().equals("") || vistaProveedor.getTxtCorreo().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "null Text");
+            JOptionPane.showMessageDialog(null, "Empty data please enter");
         } else {
             proveedorDB.setId_proveedor(Integer.parseInt(vistaProveedor.getTxtID().getText()));
             proveedorDB.setId_persona(Integer.parseInt(vistaProveedor.getTxtId().getText()));
@@ -50,9 +50,9 @@ public class proveedorControl {
             proveedorDB.setTelefono(vistaProveedor.getTxtTelefono().getText());
             proveedorDB.setCorreo(vistaProveedor.getTxtCorreo().getText());
             if (proveedorDB.insertarProveedor()) {
-                JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
+                JOptionPane.showMessageDialog(null, "Added successfully");
             } else {
-                JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
+                JOptionPane.showMessageDialog(null, "Data entry error");
             }
         }
     }

@@ -21,7 +21,7 @@ import uniquejewerlydesings.vista.RegistroEmpresa;
  */
 public class empresaControl {
 
-    private empresa empresaModelo ;
+    private empresa empresaModelo;
     private empresaDB empresaDB;
     private RegistroEmpresa vistaEmpresa;
     private proveedorDB db;
@@ -49,16 +49,20 @@ public class empresaControl {
     }
 
     public void ingreso() {
-        empresaDB.setId_proveedor(Integer.parseInt(vistaEmpresa.getTxtidpro().getText()));
-        empresaDB.setId_empresa(Integer.parseInt(vistaEmpresa.getTxtid().getText()));
-        empresaDB.setNombre_empresa(vistaEmpresa.getTxtnombreemp().getText());
-        empresaDB.setDireccion_empresa(vistaEmpresa.getTxtdirecemp().getText());
-        empresaDB.setCorreo_empresa(vistaEmpresa.getTxtemailemp().getText());
-        empresaDB.setId_persona(Integer.parseInt(vistaEmpresa.getComboPersonas().getSelectedItem().toString()));
-        if (empresaDB.insertarEmpresa()) {
-            JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
+        if (vistaEmpresa.getTxtnombreemp().getText().equals("") || vistaEmpresa.getTxtdirecemp().getText().equals("") || vistaEmpresa.getTxtemailemp().getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Empty data please enter");
         } else {
-            JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
+            empresaDB.setId_proveedor(Integer.parseInt(vistaEmpresa.getTxtidpro().getText()));
+            empresaDB.setId_empresa(Integer.parseInt(vistaEmpresa.getTxtid().getText()));
+            empresaDB.setNombre_empresa(vistaEmpresa.getTxtnombreemp().getText());
+            empresaDB.setDireccion_empresa(vistaEmpresa.getTxtdirecemp().getText());
+            empresaDB.setCorreo_empresa(vistaEmpresa.getTxtemailemp().getText());
+            empresaDB.setId_persona(Integer.parseInt(vistaEmpresa.getComboPersonas().getSelectedItem().toString()));
+            if (empresaDB.insertarEmpresa()) {
+                JOptionPane.showMessageDialog(null, "Added successfully");
+            } else {
+                JOptionPane.showMessageDialog(null, "Data entry error");
+            }
         }
     }
 

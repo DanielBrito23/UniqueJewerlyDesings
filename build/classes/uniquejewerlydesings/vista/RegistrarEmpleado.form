@@ -109,12 +109,12 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Id empleado"/>
+            <Property name="text" type="java.lang.String" value="Identification"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Id Empleado"/>
+            <Property name="text" type="java.lang.String" value="Identification"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">

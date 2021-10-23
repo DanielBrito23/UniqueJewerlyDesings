@@ -22,8 +22,6 @@ public class encabezadoFactura extends cliente {
         this.id_encabezado = id_encabezado;
     }
 
-    
-
     public int getId_encabezado() {
         return id_encabezado;
     }

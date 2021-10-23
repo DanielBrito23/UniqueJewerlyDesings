@@ -49,7 +49,7 @@ public class personaControl {
     public void ingresoPersona() {
         if (vistaPersona.getTxtCedula().getText().equals("") || vistaPersona.getTxtNombres().getText().equals("") || vistaPersona.getTxtCorreo().getText().equals("")
                 || vistaPersona.getTxtTelefono().getText().equals("") || vistaPersona.getTxtCorreo().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "null Text");
+            JOptionPane.showMessageDialog(null, "Empty data please enter");
         } else {
             personaDB.setId_persona(Integer.parseInt(vistaPersona.getTxtID().getText()));
             personaDB.setCedula(vistaPersona.getTxtCedula().getText());
@@ -58,10 +58,10 @@ public class personaControl {
             personaDB.setTelefono(vistaPersona.getTxtTelefono().getText());
             personaDB.setCorreo(vistaPersona.getTxtCorreo().getText());
             if (personaDB.insertarPersona()) {
-                JOptionPane.showMessageDialog(null, "Datos Agregados correctamente");
+                JOptionPane.showMessageDialog(null, "Added successfully");
                 limparCampos();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al Ingresar Datos");
+                JOptionPane.showMessageDialog(null, "Data entry error");
             }
         }
     }
