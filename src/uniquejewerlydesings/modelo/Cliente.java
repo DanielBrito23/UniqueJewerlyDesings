@@ -9,7 +9,7 @@ package uniquejewerlydesings.modelo;
  *
  * @author corin
  */
-public class cliente {
+public class cliente extends persona {
     private int id_cliente;
     private int id_persona;
 
@@ -20,6 +20,11 @@ public class cliente {
         this.id_cliente = id_cliente;
         this.id_persona = id_persona;
     }
+
+    public cliente(int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
+        super(id_persona, cedula, nombres, direccion, telefono, correo);
+    }
+    
 
     public int getId_cliente() {
         return id_cliente;
