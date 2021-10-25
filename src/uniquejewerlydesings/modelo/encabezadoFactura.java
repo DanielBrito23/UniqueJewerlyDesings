@@ -9,7 +9,7 @@ package uniquejewerlydesings.modelo;
  *
  * @author corin
  */
-// hacer un objeto de la persona 
+//llamar al id de empleado
 public class encabezadoFactura extends cliente {
 
     private int id_encabezado;
@@ -17,10 +17,12 @@ public class encabezadoFactura extends cliente {
     public encabezadoFactura() {
     }
 
-    public encabezadoFactura(int id_encabezado, int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
-        super(id_persona, cedula, nombres, direccion, telefono, correo);
+    public encabezadoFactura(int id_encabezado, int id_cliente, int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
+        super(id_cliente, id_persona, cedula, nombres, direccion, telefono, correo);
         this.id_encabezado = id_encabezado;
     }
+
+    
 
     public int getId_encabezado() {
         return id_encabezado;

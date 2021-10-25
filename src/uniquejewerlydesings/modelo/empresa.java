@@ -19,9 +19,9 @@ public class empresa  extends proveedor{
     public empresa() {
     }
 
-    public empresa(int id_proveedor) {
-        super(id_proveedor);
-    }
+//    public empresa(int id_proveedor) {
+//        super(id_proveedor);
+//    }
 
     
 

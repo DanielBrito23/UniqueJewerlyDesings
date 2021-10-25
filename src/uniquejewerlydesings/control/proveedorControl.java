@@ -31,39 +31,38 @@ public class proveedorControl {
         //abrir la ventana
         vistaProveedor.setVisible(true);
         vistaProveedor.setLocationRelativeTo(null);
-        vistaProveedor.getTxtID().setText(String.valueOf(idpro()));
-        vistaProveedor.getTxtidpersona().setText(String.valueOf(idper()));
+//        vistaProveedor.getTxtID().setText(String.valueOf(idpro()));
+//        vistaProveedor.getTxtidpersona().setText(String.valueOf(idper()));
         //acciones a los botones de la vistaPersona
         vistaProveedor.getBtnGuardar().addActionListener(e -> ingreso());
     }
 
     public void ingreso() {
-        if (vistaProveedor.getTxtCedula().getText().equals("") || vistaProveedor.getTxtNombres().getText().equals("") || vistaProveedor.getTxtCorreo().getText().equals("")
-                || vistaProveedor.getTxtTelefono().getText().equals("") || vistaProveedor.getTxtCorreo().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Empty data please enter");
-        } else {
-            proveedorDB.setId_proveedor(Integer.parseInt(vistaProveedor.getTxtID().getText()));
-            proveedorDB.setId_persona(Integer.parseInt(vistaProveedor.getTxtId().getText()));
-            proveedorDB.setCedula(vistaProveedor.getTxtCedula().getText());
-            proveedorDB.setNombres(vistaProveedor.getTxtNombres().getText());
-            proveedorDB.setDireccion(vistaProveedor.getTxtDireccion().getText());
-            proveedorDB.setTelefono(vistaProveedor.getTxtTelefono().getText());
-            proveedorDB.setCorreo(vistaProveedor.getTxtCorreo().getText());
-            if (proveedorDB.insertarProveedor()) {
-                JOptionPane.showMessageDialog(null, "Added successfully");
-            } else {
-                JOptionPane.showMessageDialog(null, "Data entry error");
-            }
-        }
+//        if (vistaProveedor.getTxtCedula().getText().equals("") || vistaProveedor.getTxtNombres().getText().equals("") || vistaProveedor.getTxtCorreo().getText().equals("")
+//                || vistaProveedor.getTxtTelefono().getText().equals("") || vistaProveedor.getTxtCorreo().getText().equals("")) {
+//            JOptionPane.showMessageDialog(null, "Empty data please enter");
+//        } else {
+//            proveedorDB.setId_proveedor(Integer.parseInt(vistaProveedor.getTxtID().getText()));
+//            proveedorDB.setCedula(vistaProveedor.getTxtCedula().getText());
+//            proveedorDB.setNombres(vistaProveedor.getTxtNombres().getText());
+//            proveedorDB.setDireccion(vistaProveedor.getTxtDireccion().getText());
+//            proveedorDB.setTelefono(vistaProveedor.getTxtTelefono().getText());
+//            proveedorDB.setCorreo(vistaProveedor.getTxtCorreo().getText());
+//            if (proveedorDB.insertarProveedor()) {
+//                JOptionPane.showMessageDialog(null, "Added successfully");
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Data entry error");
+//            }
+//        }
     }
 
-    public int idpro() {
-        int id = proveedorDB.id_auto();
-        return id;
-    }
-
-    public int idper() {
-        int id = proveedorDB.id_autoper();
-        return id;
-    }
+//    public int idpro() {
+//        int id = proveedorDB.id_auto();
+//        return id;
+//    }
+//
+//    public int idper() {
+//        int id = proveedorDB.id_autoper();
+//        return id;
+//    }
 }

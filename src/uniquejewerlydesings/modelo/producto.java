@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author corin
  */
-public class producto extends proveedor {
+public class producto  {
     private int id_producto;
     private int calculo_utilidad;//preguntar al tio si va eso 
     private String descripcion;
@@ -20,13 +20,12 @@ public class producto extends proveedor {
     private double peso_metal;
     private String tipo_metal;
     private double precio_unitario;
-    private double precio_total;
+    private String tipo_producto;
 
     public producto() {
     }
 
-    public producto(int id_producto, int calculo_utilidad, String descripcion, Date fecha, int cantidad, double peso_metal, String tipo_metal, double precio_unitario, double precio_total, int id_proveedor) {
-        super(id_proveedor);
+    public producto(int id_producto, int calculo_utilidad, String descripcion, Date fecha, int cantidad, double peso_metal, String tipo_metal, double precio_unitario, String tipo_producto) {
         this.id_producto = id_producto;
         this.calculo_utilidad = calculo_utilidad;
         this.descripcion = descripcion;
@@ -35,8 +34,10 @@ public class producto extends proveedor {
         this.peso_metal = peso_metal;
         this.tipo_metal = tipo_metal;
         this.precio_unitario = precio_unitario;
-        this.precio_total = precio_total;
+        this.tipo_producto = tipo_producto;
     }
+
+    
 
   
 
@@ -104,13 +105,7 @@ public class producto extends proveedor {
         this.precio_unitario = precio_unitario;
     }
 
-    public double getPrecio_total() {
-        return precio_total;
-    }
-
-    public void setPrecio_total(double precio_total) {
-        this.precio_total = precio_total;
-    }
+   
    
     
     

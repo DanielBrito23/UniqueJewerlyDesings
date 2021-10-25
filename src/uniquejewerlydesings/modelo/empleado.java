@@ -11,7 +11,6 @@ package uniquejewerlydesings.modelo;
  */
 public class empleado extends persona {
     private int id_empleado;
-    private int id_persona;
     private String cargo;
 
     public empleado() {
@@ -29,14 +28,6 @@ public class empleado extends persona {
 
     public void setId_empleado(int id_empleado) {
         this.id_empleado = id_empleado;
-    }
-
-    public int getId_persona() {
-        return id_persona;
-    }
-
-    public void setId_persona(int id_persona) {
-        this.id_persona = id_persona;
     }
 
     public String getCargo() {

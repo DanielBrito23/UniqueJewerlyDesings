@@ -34,14 +34,12 @@ public class empresaDB extends empresa {
 
     public boolean insertarEmpresa() {
         
-        per = new persona();
-        String codigoPersona;
-        codigoPersona = vistaEmpresa.getComboPersonas().getItemAt(vistaEmpresa.getComboPersonas().getSelectedIndex()+per.getId_persona());
+      
         conn = new Conexion();
         sql = "insert into empresa (id_empresa,nombre_empresa,direccion_empresa,correo_empresa) "
                 + "values (" + getId_empresa() + ",'" + getNombre_empresa() + "', '" + getDireccion_empresa() + "','" + getCorreo_empresa() + "');"
                 + "insert into proveedor (id_proveedor,id_persona,id_empresa)"
-                + "values (" + getId_proveedor() + "," + codigoPersona + ", " + getId_empresa() + " );";
+                + "values (" + getId_proveedor() + "," + getId_persona() + ", " + getId_empresa() + " );";
         System.out.println("insert empresa: " + sql);
         PreparedStatement ps = conn.getPs(sql);
 

@@ -9,6 +9,7 @@ package uniquejewerlydesings.modelo;
  *
  * @author corin
  */
+
 /// hacer que el mismo id de persona se guarde en el id de cliente 
 public class cuerpoFactura extends encabezadoFactura {
 
@@ -16,20 +17,20 @@ public class cuerpoFactura extends encabezadoFactura {
     private double total;
     private double abono;
     private double valor_pendiente;
-    private String reparaciones;
+    
 
     public cuerpoFactura() {
     }
 
-    public cuerpoFactura(int id_cuerpo, double total, double abono, double valor_pendiente, String reparaciones, int id_encabezado, int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
-        super(id_encabezado, id_persona, cedula, nombres, direccion, telefono, correo);
+    public cuerpoFactura(int id_cuerpo, double total, double abono, double valor_pendiente, int id_encabezado, int id_cliente, int id_persona, String cedula, String nombres, String direccion, String telefono, String correo) {
+        super(id_encabezado, id_cliente, id_persona, cedula, nombres, direccion, telefono, correo);
         this.id_cuerpo = id_cuerpo;
         this.total = total;
         this.abono = abono;
         this.valor_pendiente = valor_pendiente;
-        this.reparaciones = reparaciones;
     }
 
+   
 
     public int getId_cuerpo() {
         return id_cuerpo;
@@ -38,6 +39,10 @@ public class cuerpoFactura extends encabezadoFactura {
     public void setId_cuerpo(int id_cuerpo) {
         this.id_cuerpo = id_cuerpo;
     }
+
+   
+
+    
 
     public double getTotal() {
         return total;
@@ -62,6 +67,10 @@ public class cuerpoFactura extends encabezadoFactura {
     public void setValor_pendiente(double valor_pendiente) {
         this.valor_pendiente = valor_pendiente;
     }
+
+ 
+
+
 
     
 }

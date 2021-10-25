@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import uniquejewerlydesings.DBmodelo.personaDB;
 import uniquejewerlydesings.modelo.persona;
+import uniquejewerlydesings.modelo.validacion;
 import uniquejewerlydesings.vista.ListaPersonas;
 import uniquejewerlydesings.vista.PersonaIngreso;
 
@@ -27,6 +28,7 @@ public class personaControl {
     private personaDB personaDB;
     private PersonaIngreso vistaPersona;
     private ListaPersonas tablaPersona;
+    private validacion b;
     DefaultTableModel modelo = new DefaultTableModel();
 
     public personaControl(persona personaModelo, personaDB personaDB, PersonaIngreso vistaPersona) {
@@ -43,10 +45,17 @@ public class personaControl {
 
         //acciones a los botones de la vistaPersona
         vistaPersona.getBtnGuardar().addActionListener(e -> ingresoPersona());
+        
+    }
+
+    public void validarCampos() {
+          b.validarLetras(vistaPersona.getTxtNombres());
+
 
     }
 
     public void ingresoPersona() {
+
         if (vistaPersona.getTxtCedula().getText().equals("") || vistaPersona.getTxtNombres().getText().equals("") || vistaPersona.getTxtCorreo().getText().equals("")
                 || vistaPersona.getTxtTelefono().getText().equals("") || vistaPersona.getTxtCorreo().getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Empty data please enter");
@@ -64,22 +73,23 @@ public class personaControl {
                 JOptionPane.showMessageDialog(null, "Data entry error");
             }
         }
+      
     }
 
     public int idper() {
         int id = personaDB.id_autoper();
         return id;
     }
-    
-    public void limparCampos(){
+
+    public void limparCampos() {
         vistaPersona.getTxtCedula().setText("");
-        
+
         vistaPersona.getTxtNombres().setText("");
-        
+
         vistaPersona.getTxtCorreo().setText("");
-        
+
         vistaPersona.getTxtTelefono().setText("");
-        
+
         vistaPersona.getTxtDireccion().setText("");
     }
 

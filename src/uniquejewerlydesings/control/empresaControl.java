@@ -57,7 +57,7 @@ public class empresaControl {
             empresaDB.setNombre_empresa(vistaEmpresa.getTxtnombreemp().getText());
             empresaDB.setDireccion_empresa(vistaEmpresa.getTxtdirecemp().getText());
             empresaDB.setCorreo_empresa(vistaEmpresa.getTxtemailemp().getText());
-            empresaDB.setId_persona(Integer.parseInt(vistaEmpresa.getComboPersonas().getSelectedItem().toString()));
+            empresaDB.setId_persona(vistaEmpresa.getComboPersonas().getSelectedIndex());
             if (empresaDB.insertarEmpresa()) {
                 JOptionPane.showMessageDialog(null, "Added successfully");
             } else {
@@ -77,15 +77,20 @@ public class empresaControl {
 
     }
 
-    public void llenarComboInstiEduc() throws SQLException {
-        comboBox = new DefaultComboBoxModel();
-        empresaDB = new empresaDB();
-        listaPersonaArray = empresaDB.listaPersonas();
-        for (persona p : listaPersonaArray) {
-            comboBox.addElement(p.getNombres());
-            // como recoger este numero y poner en el insert
-            System.out.println(p.getId_persona());
+    public void llenarComboInstiEduc() {
+        try {
+            comboBox = new DefaultComboBoxModel();
+            empresaDB = new empresaDB();
+            listaPersonaArray = empresaDB.listaPersonas();
+            for (persona p : listaPersonaArray) {
+                comboBox.addElement(p.getNombres());
+                // como recoger este numero y poner en el insert
+                System.out.println(p.getId_persona());
+            }
+            vistaEmpresa.getComboPersonas().setModel(comboBox);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        vistaEmpresa.getComboPersonas().setModel(comboBox);
+
     }
 }
