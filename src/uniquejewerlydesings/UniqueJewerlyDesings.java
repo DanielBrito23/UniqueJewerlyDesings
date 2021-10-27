@@ -36,22 +36,24 @@ public class UniqueJewerlyDesings {
      */
     public static void main(String[] args) throws SQLException {
 
-        menuControl menuControl = new menuControl();
-        MenuPrincipal vistaMenu = new MenuPrincipal();
-        Inicio vistaInicio = new Inicio();
-        inicioControl controlInicio = new inicioControl(menuControl, vistaMenu, vistaInicio);
-        controlInicio.iniciaControl();
-//       personaDB modelo = new personaDB();
-//       ListaPersonas vista = new ListaPersonas();
-//       listaControl control = new listaControl(modelo, vista);
-//       control.iniciaControl();
+//        menuControl menuControl = new menuControl();
+//        MenuPrincipal vistaMenu = new MenuPrincipal();
+//        Inicio vistaInicio = new Inicio();
+//        inicioControl controlInicio = new inicioControl(menuControl, vistaMenu, vistaInicio);
+//        controlInicio.iniciaControl();
+
+        persona modeloPe = new persona();
+        personaDB modelodb = new personaDB();
+        PersonaIngreso vista = new PersonaIngreso();
+        personaControl control = new personaControl(modeloPe, modelodb, vista);
+        control.iniciarControl();
+
 //        empresaDB modelo = new empresaDB();
 //        RegistroEmpresa vista = new RegistroEmpresa();
 //        empresa d = new empresa();
 //        proveedorDB db = new proveedorDB();
 //        empresaControl con = new empresaControl(d, modelo, vista, db);
 //        con.iniciarControl();
-
     }
 
 }

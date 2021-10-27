@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uniquejewerlydesings.modelo;
+package uniquejewerlydesings.control;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

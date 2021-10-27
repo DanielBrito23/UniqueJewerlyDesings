@@ -14,7 +14,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import uniquejewerlydesings.DBmodelo.personaDB;
 import uniquejewerlydesings.modelo.persona;
-import uniquejewerlydesings.modelo.validacion;
 import uniquejewerlydesings.vista.ListaPersonas;
 import uniquejewerlydesings.vista.PersonaIngreso;
 
@@ -22,7 +21,7 @@ import uniquejewerlydesings.vista.PersonaIngreso;
  *
  * @author LENOVO
  */
-public class personaControl {
+public class personaControl extends validacion{
 
     private persona personaModelo;
     private personaDB personaDB;
@@ -46,12 +45,12 @@ public class personaControl {
         //acciones a los botones de la vistaPersona
         vistaPersona.getBtnGuardar().addActionListener(e -> ingresoPersona());
         
+        
+        validarCampos();
     }
 
     public void validarCampos() {
-          vistaPersona.getTxtNombres().addKeyListener(vali.getTxtNombres());
-
-
+          vistaPersona.getTxtNombres().addKeyListener(validarLetras(vistaPersona.getTxtNombres()));
     }
 
     public void ingresoPersona() {
