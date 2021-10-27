@@ -11,8 +11,10 @@ import java.util.Date;
  *
  * @author corin
  */
+// hacer un objeto de la clase
 public class proveedor extends producto {
 
+    material ma = new material();
     private int id_proveedor;
     private String nombre_proveedor;
     private String correo_proveedor;
@@ -66,7 +68,5 @@ public class proveedor extends producto {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
-    
 
 }

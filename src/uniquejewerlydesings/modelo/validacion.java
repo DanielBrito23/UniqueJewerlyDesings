@@ -7,15 +7,17 @@ package uniquejewerlydesings.modelo;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
  *
  * @author corin
  */
-public class validacion {
+public abstract class validacion {
 
     public void validarnumeros(JTextField campo) {
         campo.addKeyListener(new KeyAdapter() {
@@ -29,28 +31,36 @@ public class validacion {
         });
     }
 
-    public void validarLetras(JTextField campo) {
-        campo.addKeyListener(new KeyAdapter() {
+
+    public KeyListener validarLetras(JTextField letras) { // metodo para validar el ingreso de letras 
+        KeyListener ke = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toLowerCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                }
-                if (Character.isDigit(c)) {
+                char val = e.getKeyChar();
+                if ((val < 'a' || val > 'z') && (val < 'A' || val > 'Z') && (val != 'Ñ') && ( val != 'ñ') && (val != KeyEvent.VK_SPACE)) {
                     e.consume();
                 }
+                // codigo para pasar las letras a mayuscula
+                if (Character.isLowerCase(val)) {
+                    String cad = ("" + val).toUpperCase();
+                    val = cad.charAt(0);
+                    e.setKeyChar(val);
+                }
+                int cont = 50;
+                if (letras.getText().length() >= cont) {
+                    e.consume();
+                    JOptionPane.showMessageDialog(null, "Demaciados caracteres (49)", "Verificacion", JOptionPane.WARNING_MESSAGE);
+                }
             }
-        });
 
-    }
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
 
-    public static boolean validarCorreo(String email) {
-        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+            @Override
+            public void keyReleased(KeyEvent e) {
+            }
+        };
+        return ke;
     }
 }

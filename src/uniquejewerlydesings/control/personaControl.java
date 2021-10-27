@@ -49,7 +49,7 @@ public class personaControl {
     }
 
     public void validarCampos() {
-          b.validarLetras(vistaPersona.getTxtNombres());
+          vistaPersona.getTxtNombres().addKeyListener(vali.getTxtNombres());
 
 
     }
