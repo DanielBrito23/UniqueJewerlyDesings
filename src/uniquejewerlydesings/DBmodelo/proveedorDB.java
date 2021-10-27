@@ -31,10 +31,8 @@ public class proveedorDB extends proveedor {
     public boolean insertarProveedor() {
 
         conn = new Conexion();
-        sql = "insert into persona (id_persona, cedula, nombres, direccion, telefono, correo) "
-                + "values (" + getId_persona() + ", '" + getCedula() + "', '" + getNombres() + "','" + getDireccion() + "','" + getTelefono() + "','" + getCorreo() + "');"
-                + "insert into proveedor (id_proveedor,id_persona)"
-                + "values (" + getId_proveedor() + "," + getId_persona() + ");"; 
+        sql = "insert into proveedor (id_proveedor,id_producto,nombre_proveedor,correo_proveedor,telefono,direccion)"
+                + "values (" + getId_proveedor() + "," + getId_producto()+  "," + getNombre_proveedor()+  "," + getCorreo_proveedor()+  "," + getTelefono()+  "," + getDireccion()+ ");"; 
         System.out.println("insert Persona: " + sql);
    
         PreparedStatement ps = conn.getPs(sql);

@@ -6,10 +6,8 @@
 package uniquejewerlydesings;
 
 import java.sql.SQLException;
-import uniquejewerlydesings.DBmodelo.empresaDB;
 import uniquejewerlydesings.DBmodelo.personaDB;
 import uniquejewerlydesings.DBmodelo.proveedorDB;
-import uniquejewerlydesings.control.empresaControl;
 import uniquejewerlydesings.control.facturaControl;
 import uniquejewerlydesings.control.inicioControl;
 import uniquejewerlydesings.control.listaControl;
@@ -25,7 +23,6 @@ import uniquejewerlydesings.vista.Inicio;
 import uniquejewerlydesings.vista.ListaPersonas;
 import uniquejewerlydesings.vista.MenuPrincipal;
 import uniquejewerlydesings.vista.PersonaIngreso;
-import uniquejewerlydesings.vista.RegistroEmpresa;
 import uniquejewerlydesings.vista.RegistroProveedor;
 
 /**
