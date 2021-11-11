@@ -70,9 +70,10 @@ public class personaDB extends persona {
         return id;
     }
 
-    public List<persona> listaPersonas() throws SQLException {
+    public List<persona> listaPersonas() {
+
         List<persona> datos = new ArrayList<persona>();
-        String sql = "select * from persona";
+        sql = "select * from persona";
         ResultSet rs = conn.query(sql);
         try {
             while (rs.next()) {
@@ -89,8 +90,9 @@ public class personaDB extends persona {
             return datos;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "error tabla: " + e.getMessage());
-            return null;
+
         }
+        return null;
     }
 
 }

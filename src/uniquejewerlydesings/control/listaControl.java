@@ -51,25 +51,18 @@ public class listaControl {
         modeloTab = (DefaultTableModel) vista.getTabla().getModel();
         List<persona> lista;
 
-        try {
-            lista = modelo.listaPersonas();
-            int columnas = modeloTab.getColumnCount();
-            for (int i = 0; i < lista.size(); i++) {
-                modeloTab.addRow(new Object[columnas]);
-                vista.getTabla().setValueAt(lista.get(i).getId_persona(), i, 0);
-                vista.getTabla().setValueAt(lista.get(i).getCedula(), i, 1);
-                vista.getTabla().setValueAt(lista.get(i).getNombres(), i, 2);
-                vista.getTabla().setValueAt(lista.get(i).getDireccion(), i, 3);
-                vista.getTabla().setValueAt(lista.get(i).getTelefono(), i, 4);
-                vista.getTabla().setValueAt(lista.get(i).getCorreo(), i, 5);
-            }
-            vista.getLbltexto().setText("Cargados: " + lista.size() + " registros");
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error Tabla: "+ex.getMessage()+" Causa: "+ex.getCause());
-            Logger.getLogger(listaControl.class.getName()).log(Level.SEVERE, null, ex);
-
+        lista = modelo.listaPersonas();
+        int columnas = modeloTab.getColumnCount();
+        for (int i = 0; i < lista.size(); i++) {
+            modeloTab.addRow(new Object[columnas]);
+            vista.getTabla().setValueAt(lista.get(i).getId_persona(), i, 0);
+            vista.getTabla().setValueAt(lista.get(i).getCedula(), i, 1);
+            vista.getTabla().setValueAt(lista.get(i).getNombres(), i, 2);
+            vista.getTabla().setValueAt(lista.get(i).getDireccion(), i, 3);
+            vista.getTabla().setValueAt(lista.get(i).getTelefono(), i, 4);
+            vista.getTabla().setValueAt(lista.get(i).getCorreo(), i, 5);
         }
+        vista.getLbltexto().setText("Cargados: " + lista.size() + " registros");
 
     }
 }

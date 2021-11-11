@@ -30,6 +30,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.btnNewCustom = btnNewCustom;
     }
 
+    public JMenuItem getJListCustom() {
+        return JListCustom;
+    }
+
+    public void setJListCustom(JMenuItem JListCustom) {
+        this.JListCustom = JListCustom;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,8 +54,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Jminventory = new javax.swing.JMenu();
-        jStocksProducts = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        JNewProducto1 = new javax.swing.JMenuItem();
         JProducts = new javax.swing.JMenu();
         JNewProducto = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
@@ -85,16 +93,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         Jminventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/inventory.png"))); // NOI18N
         Jminventory.setText("Inventory");
+        Jminventory.add(jSeparator6);
 
-        jStocksProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/jewelry.png"))); // NOI18N
-        jStocksProducts.setText("Stocks Products");
-        jStocksProducts.addActionListener(new java.awt.event.ActionListener() {
+        JNewProducto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/jewelry.png"))); // NOI18N
+        JNewProducto1.setText("Products Stock");
+        JNewProducto1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jStocksProductsActionPerformed(evt);
+                JNewProducto1ActionPerformed(evt);
             }
         });
-        Jminventory.add(jStocksProducts);
-        Jminventory.add(jSeparator6);
+        Jminventory.add(JNewProducto1);
 
         JProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/products.png"))); // NOI18N
         JProducts.setText("Products");
@@ -208,10 +216,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jStocksProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStocksProductsActionPerformed
-        ProductosStock produc = new ProductosStock();
-        produc.setVisible(true);    }//GEN-LAST:event_jStocksProductsActionPerformed
-
     private void btnNewCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCustomActionPerformed
         
     }//GEN-LAST:event_btnNewCustomActionPerformed
@@ -232,6 +236,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void JNewProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNewProductoActionPerformed
         
     }//GEN-LAST:event_JNewProductoActionPerformed
+
+    private void JNewProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNewProducto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JNewProducto1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,6 +285,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu JMCustoms;
     private javax.swing.JMenu JMInvoice;
     private javax.swing.JMenuItem JNewProducto;
+    private javax.swing.JMenuItem JNewProducto1;
     private javax.swing.JMenu JProducts;
     private javax.swing.JMenuItem JmInvoiceList;
     private javax.swing.JMenu Jminventory;
@@ -294,6 +303,5 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
-    private javax.swing.JMenuItem jStocksProducts;
     // End of variables declaration//GEN-END:variables
 }

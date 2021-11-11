@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uniquejewerlydesings.control;
+package uniquejewerlydesings.modelo;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -19,18 +19,55 @@ import javax.swing.JTextField;
  */
 public abstract class validacion {
 
-    public void validarnumeros(JTextField campo) {
-        campo.addKeyListener(new KeyAdapter() {
+  public KeyListener validarNumeros(JTextField numero) { // metodo para validar el ingreso de numeros 
+        KeyListener kn = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (!Character.isDigit(c)) {
+                char val = e.getKeyChar();
+                if (val < '0' || val > '9') {
                     e.consume();
                 }
             }
-        });
-    }
 
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        };
+        return kn;
+    }
+  
+  
+  public KeyListener validarCelular(JTextField numero) { // metodo para validar el ingreso de numeros de celular y telefono
+        KeyListener kn = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char val = e.getKeyChar();
+                if (val < '0' || val > '9') {
+                    e.consume();
+                }
+                int cont = 12;
+                if (numero.getText().length() >= cont) {
+                    e.consume();
+                    JOptionPane.showMessageDialog(null, "Numero de celular no válido", "Verificación", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        };
+        return kn;
+    }
 
     public KeyListener validarLetras(JTextField letras) { // metodo para validar el ingreso de letras 
         KeyListener ke = new KeyListener() {
@@ -62,5 +99,17 @@ public abstract class validacion {
             }
         };
         return ke;
+    }
+    
+     public boolean isEmail (String correo){
+        Pattern pat = null;
+        Matcher mat = null;
+        pat = Pattern.compile("^[\\w\\-\\_\\+]+(\\.[\\w\\-\\_]+)*@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$");
+        mat = pat.matcher(correo);
+        if(mat.find()){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

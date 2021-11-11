@@ -5,6 +5,7 @@
  */
 package uniquejewerlydesings.control;
 
+import uniquejewerlydesings.modelo.validacion;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -51,6 +52,9 @@ public class personaControl extends validacion{
 
     public void validarCampos() {
           vistaPersona.getTxtNombres().addKeyListener(validarLetras(vistaPersona.getTxtNombres()));
+          vistaPersona.getTxtDireccion().addKeyListener(validarLetras(vistaPersona.getTxtDireccion()));
+          vistaPersona.getTxtTelefono().addKeyListener(validarCelular(vistaPersona.getTxtTelefono()));
+          vistaPersona.getTxtNombres().addKeyListener(validarLetras(vistaPersona.getTxtNombres()));
     }
 
     public void ingresoPersona() {
@@ -79,7 +83,7 @@ public class personaControl extends validacion{
         int id = personaDB.id_autoper();
         return id;
     }
-
+    
     public void limparCampos() {
         vistaPersona.getTxtCedula().setText("");
 
