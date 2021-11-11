@@ -15,7 +15,7 @@ import uniquejewerlydesings.vista.MenuPrincipal;
  */
 public class inicioControl {
 
-    private menuControl menuControl;
+private menuControl menuControl;
     private MenuPrincipal vistaMenu;
     private Inicio vistaInicio;
 
@@ -33,10 +33,16 @@ public class inicioControl {
 
     public void iniciaControl() {
         vistaInicio.getBtnstart().addActionListener(e -> inicioMenu());
+        vistaInicio.getBtnstart().addActionListener(e -> cierraInicio());
+        
         
     }
     
     public void inicioMenu (){  
         m.iniciarControl();
+    }
+    
+    public void cierraInicio (){  
+        vistaInicio.dispose();
     }
 }

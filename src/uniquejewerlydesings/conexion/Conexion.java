@@ -31,25 +31,13 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
 
-    String urlDatabase = "jdbc:postgresql://localhost:5432/joyeria";
-    private static final String pgUsuario = "postgres";
-    private static final String pgPass = "1256";//CONTRASEÑA DE LA BASE DE DATOS
-
+   private final static String cadenaConexion = "jdbc:postgresql://localhost:5432/joyeria";
+    private final static String pgUsuario = "postgres";
+    private final static String pgPass = "1256";
+    private Connection con;//conexion
     private Statement st;// comando:sql
     private ResultSet rs;//Resultados de la consulta
 
-    private Connection con;//CONEXION
-    private ResultSet rst;//RESULTADO DE LAS CONSULTAS
-
-//    public Connection getConection() {
-//        try {
-//            Class.forName("org.postgresql.Driver");
-//            conn = DriverManager.getConnection(urlDatabase, "yuu69", "tigernew");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return conn;
-//    }
     public Conexion() {
         //fijar clase de conexion
         try {
@@ -58,40 +46,42 @@ public class Conexion {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            con = DriverManager.getConnection(urlDatabase, pgUsuario, pgPass);
+            con = DriverManager.getConnection(cadenaConexion, pgUsuario, pgPass);
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
-
-    public Connection conectarBD() {
+    
+    public PreparedStatement getPs(String sql) {
         try {
-            Class.forName("org.postgresql.Driver");
+            return con.prepareStatement(sql);
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        try {
-            con = DriverManager.getConnection(urlDatabase, pgUsuario, pgPass);
-            return con;
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
 
-    public void cerrarConexion() {
-
-        //Cierra la conexion de la Base de Datos
+    public SQLException noQuery(PreparedStatement ps) {
         try {
+            int res = ps.executeUpdate();
+            return null;
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            return ex;
+        }
+    }
 
-            con.close();
-            System.out.println("conexion cerrada");
-
-        } catch (Exception e) {
-            e.printStackTrace();
+    public SQLException noQuery(String sql) {
+        try {
+            st = con.createStatement();
+            st.execute(sql);
+            st.close();
+            return null; //al momento de agregar el SQLEXception se debe que si no hay problema salga null
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            return ex; //al momento de agregar el SQLEXception se debe que si hay problema salga error "ex"
         }
     }
 
@@ -101,43 +91,24 @@ public class Conexion {
             rs = st.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
     
-
-    public SQLException noQuery(String sql) {
-
+    public Connection conectarBD() {
         try {
-            st = con.createStatement();
-            st.execute(sql);
-            st.close();
-            return null;
-        } catch (SQLException ex) {
+            Class.forName("org.postgresql.Driver");
 
-            return ex;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//FIN DEL METODO RESULTSET DEL QUERY PARA CONSULTAS
 
-    public PreparedStatement getPs(String sql) {
         try {
-            return con.prepareStatement(sql);
+            con = DriverManager.getConnection(cadenaConexion, pgUsuario, pgPass);
+            return con;
         } catch (SQLException ex) {
-            System.out.println("Error al ingresar:" + ex.getMessage());
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    }
-
-    public ResultSet consulta(String sql) {
-        ResultSet res = null;
-        try {
-            PreparedStatement pstm = con.prepareStatement(sql);
-            res = pstm.executeQuery();
-        } catch (SQLException e) {
-            System.out.println("Error consulta:" + e.getMessage());
-        }
-        return res;
     }
 }

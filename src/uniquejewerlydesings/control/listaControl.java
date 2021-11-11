@@ -36,6 +36,7 @@ public class listaControl {
     }
 
     public void iniciaControl() {
+        vista.setLocationRelativeTo(null);
         vista.setVisible(true);
         cargarLista();
     }
@@ -51,18 +52,25 @@ public class listaControl {
         modeloTab = (DefaultTableModel) vista.getTabla().getModel();
         List<persona> lista;
 
-        lista = modelo.listaPersonas();
-        int columnas = modeloTab.getColumnCount();
-        for (int i = 0; i < lista.size(); i++) {
-            modeloTab.addRow(new Object[columnas]);
-            vista.getTabla().setValueAt(lista.get(i).getId_persona(), i, 0);
-            vista.getTabla().setValueAt(lista.get(i).getCedula(), i, 1);
-            vista.getTabla().setValueAt(lista.get(i).getNombres(), i, 2);
-            vista.getTabla().setValueAt(lista.get(i).getDireccion(), i, 3);
-            vista.getTabla().setValueAt(lista.get(i).getTelefono(), i, 4);
-            vista.getTabla().setValueAt(lista.get(i).getCorreo(), i, 5);
+        try {
+            lista = modelo.listaPersonas();
+            int columnas = modeloTab.getColumnCount();
+
+            for (int i = 0; i < lista.size(); i++) {
+                modeloTab.addRow(new Object[columnas]);
+                vista.getTabla().setValueAt(lista.get(i).getId_persona(), i, 0);
+                vista.getTabla().setValueAt(lista.get(i).getCedula(), i, 1);
+                vista.getTabla().setValueAt(lista.get(i).getNombres(), i, 2);
+                vista.getTabla().setValueAt(lista.get(i).getDireccion(), i, 3);
+                vista.getTabla().setValueAt(lista.get(i).getTelefono(), i, 4);
+                vista.getTabla().setValueAt(lista.get(i).getCorreo(), i, 5);
+
+            }
+            vista.getLbltexto().setText("Cargados " + lista.size() + " registros");
+        } catch (SQLException e) {
+            System.out.println("Error en la tabla personas: " + e.getLocalizedMessage() + " causa: " + e.getCause());
+
         }
-        vista.getLbltexto().setText("Cargados: " + lista.size() + " registros");
 
     }
 }
