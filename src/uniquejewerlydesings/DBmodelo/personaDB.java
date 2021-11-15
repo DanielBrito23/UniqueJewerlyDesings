@@ -52,7 +52,7 @@ private Conexion conecta = new Conexion();
 
         System.out.println("Entra a lista sql");
         List<persona> listaPersonas = new ArrayList<persona>();
-        String sql = "select * from persona";
+        String sql = "select * from persona  WHERE estado='a'";
         ResultSet rs = conecta.query(sql);
         try {
             while (rs.next()) {
@@ -70,6 +70,34 @@ private Conexion conecta = new Conexion();
         } catch (SQLException e) {
             System.out.println("error en la consulta de la tabla" + e.getMessage().toString());
             JOptionPane.showMessageDialog(null, "error tabla: " + e.getMessage());
+            return null;
+        }
+    }
+    
+    
+     public List<persona> buscar(String aguja)  {
+        List<persona> listaPersonas = new ArrayList();
+        
+        String sql = "SELECT * FROM persona WHERE estado='a' and nombres LIKE '"+aguja+"%' or cedula LIKE '"+aguja+"%'";
+         System.out.println(sql);
+         ResultSet rs = conecta.query(sql);
+        try {
+            while (rs.next()) {
+                persona p = new persona();
+                p.setId_persona(rs.getInt("id_persona"));
+                p.setCedula(rs.getString("cedula"));
+                p.setNombres(rs.getString("nombres"));
+                p.setCorreo(rs.getString("direccion"));
+                p.setTelefono(rs.getString("telefono"));
+                p.setDireccion(rs.getString("correo"));
+                listaPersonas.add(p);
+            }
+            rs.close();
+            return listaPersonas;
+           
+        } catch (SQLException ex) {
+            
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
