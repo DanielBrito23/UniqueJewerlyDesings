@@ -111,7 +111,6 @@ public class ListaPersonas extends javax.swing.JFrame {
 
         Lbltexto.setText("jLabel2");
 
-        txtBuscar.setText("Search ...");
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarActionPerformed(evt);

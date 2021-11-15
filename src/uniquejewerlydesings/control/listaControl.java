@@ -15,7 +15,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import uniquejewerlydesings.DBmodelo.personaDB;
+import uniquejewerlydesings.extra.PlaceHolder;
 import uniquejewerlydesings.modelo.persona;
+
 import uniquejewerlydesings.vista.ListaPersonas;
 import uniquejewerlydesings.vista.PersonaIngreso;
 
@@ -39,6 +41,9 @@ public class listaControl {
         vista.getBtncargar().addActionListener(e -> buscar());
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
+        
+        ///////
+        placeHolder();
         cargarLista();
     }
 
@@ -101,5 +106,9 @@ public class listaControl {
         } catch (Exception ex) {
             System.out.println("Error en el buscar control" +ex.getMessage());
         }
+    }
+    
+    public void placeHolder (){
+        PlaceHolder txtbuscar = new PlaceHolder("Buscar", vista.getTxtBuscar());
     }
 }
