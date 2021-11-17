@@ -38,6 +38,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.JListCustom = JListCustom;
     }
 
+    public JMenuItem getBtnListProducts() {
+        return BtnListProducts;
+    }
+
+    public void setBtnListProducts(JMenuItem BtnListProducts) {
+        this.BtnListProducts = BtnListProducts;
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,7 +64,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         Jminventory = new javax.swing.JMenu();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        JNewProducto1 = new javax.swing.JMenuItem();
+        BtnListProducts = new javax.swing.JMenuItem();
         JProducts = new javax.swing.JMenu();
         JNewProducto = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
@@ -95,14 +104,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Jminventory.setText("Inventory");
         Jminventory.add(jSeparator6);
 
-        JNewProducto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/jewelry.png"))); // NOI18N
-        JNewProducto1.setText("Products Stock");
-        JNewProducto1.addActionListener(new java.awt.event.ActionListener() {
+        BtnListProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/jewelry.png"))); // NOI18N
+        BtnListProducts.setText("Products Stock");
+        BtnListProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JNewProducto1ActionPerformed(evt);
+                BtnListProductsActionPerformed(evt);
             }
         });
-        Jminventory.add(JNewProducto1);
+        Jminventory.add(BtnListProducts);
 
         JProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconsMenu/products.png"))); // NOI18N
         JProducts.setText("Products");
@@ -237,9 +246,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JNewProductoActionPerformed
 
-    private void JNewProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNewProducto1ActionPerformed
+    private void BtnListProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListProductsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JNewProducto1ActionPerformed
+    }//GEN-LAST:event_BtnListProductsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,6 +286,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem BtnListProducts;
     private javax.swing.JMenuItem JDeleteCustom;
     private javax.swing.JMenuItem JDeleteProduct;
     private javax.swing.JMenuItem JEditCustom;
@@ -285,7 +295,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu JMCustoms;
     private javax.swing.JMenu JMInvoice;
     private javax.swing.JMenuItem JNewProducto;
-    private javax.swing.JMenuItem JNewProducto1;
     private javax.swing.JMenu JProducts;
     private javax.swing.JMenuItem JmInvoiceList;
     private javax.swing.JMenu Jminventory;

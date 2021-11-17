@@ -105,6 +105,11 @@ public class producto  {
         this.precio_unitario = precio_unitario;
     }
 
+    @Override
+    public String toString() {
+        return "producto{" + "id_producto=" + id_producto + ", calculo_utilidad=" + calculo_utilidad + ", descripcion=" + descripcion + ", fecha=" + fecha + ", cantidad=" + cantidad + ", peso_metal=" + peso_metal + ", tipo_metal=" + tipo_metal + ", precio_unitario=" + precio_unitario + ", tipo_producto=" + tipo_producto + '}';
+    }
+
    
    
     
