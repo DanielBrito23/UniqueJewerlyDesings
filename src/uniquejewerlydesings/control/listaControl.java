@@ -38,13 +38,13 @@ public class listaControl {
     }
 
     public void iniciaControl() {
+        //botones
         vista.getBtncargar().addActionListener(e -> buscar());
-        vista.setLocationRelativeTo(null);
-        vista.setVisible(true);
-        
+        vista.getBtnDeletePer().addActionListener(e -> eliminar());
         ///////
         placeHolder();
         cargarLista();
+        ventana();
     }
 
     private void cargarLista() {
@@ -104,11 +104,39 @@ public class listaControl {
             vista.getLbltexto().setText("Cargados: " + lista.size() + " registros");
 
         } catch (Exception ex) {
-            System.out.println("Error en el buscar control" +ex.getMessage());
+            System.out.println("Error en el buscar producto: " +ex.getMessage());
+        }
+    }
+    
+    private void eliminar() {
+        int fsel = vista.getTabla().getSelectedRow();
+        if (fsel == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila para eliminar", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            DefaultTableModel modeloTabla = (DefaultTableModel) vista.getTabla().getModel();
+            String cod = modeloTabla.getValueAt(vista.getTabla().getSelectedRow(), 0).toString();
+            modelo.setId_persona(Integer.parseInt(cod));
+            System.out.println(cod);
+//        if (vista.getBtnEliminar().getText().contentEquals("Eliminar")) {
+            if (modelo.eliminarPersona()) {
+//                modeloTabla.removeRow(fsel);
+                JOptionPane.showMessageDialog(null, "Dato borrado correctamente");
+                cargarLista();
+            } else {
+                JOptionPane.showMessageDialog(null, "Dato no borrado");
+
+            }
+//        }
+
         }
     }
     
     public void placeHolder (){
         PlaceHolder txtbuscar = new PlaceHolder("Buscar", vista.getTxtBuscar());
+    }
+    public void ventana(){
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+        vista.setTitle("List Customs");
     }
 }

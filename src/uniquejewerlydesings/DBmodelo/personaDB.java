@@ -101,7 +101,16 @@ private Conexion conecta = new Conexion();
             return null;
         }
     }
-    
+      public boolean eliminarPersona() {
+        String sql = "UPDATE persona SET estado = 'd' WHERE id_persona='" + getId_persona()+ "'";
+        System.out.println(getId_persona());
+        if (conecta.noQuery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+     
     public int id_autoper() {
         PreparedStatement ps = null;
         ResultSet re = null;
