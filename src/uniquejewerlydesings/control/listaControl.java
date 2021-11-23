@@ -104,10 +104,10 @@ public class listaControl {
             vista.getLbltexto().setText("Cargados: " + lista.size() + " registros");
 
         } catch (Exception ex) {
-            System.out.println("Error en el buscar producto: " +ex.getMessage());
+            System.out.println("Error en el buscar producto: " + ex.getMessage());
         }
     }
-    
+
     private void eliminar() {
         int fsel = vista.getTabla().getSelectedRow();
         if (fsel == -1) {
@@ -117,24 +117,22 @@ public class listaControl {
             String cod = modeloTabla.getValueAt(vista.getTabla().getSelectedRow(), 0).toString();
             modelo.setId_persona(Integer.parseInt(cod));
             System.out.println(cod);
-//        if (vista.getBtnEliminar().getText().contentEquals("Eliminar")) {
-            if (modelo.eliminarPersona()) {
-//                modeloTabla.removeRow(fsel);
+            try {
+                modelo.eliminarPersona();
                 JOptionPane.showMessageDialog(null, "Dato borrado correctamente");
                 cargarLista();
-            } else {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Dato no borrado");
-
             }
-//        }
 
         }
     }
-    
-    public void placeHolder (){
+
+    public void placeHolder() {
         PlaceHolder txtbuscar = new PlaceHolder("Buscar", vista.getTxtBuscar());
     }
-    public void ventana(){
+
+    public void ventana() {
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
         vista.setTitle("List Customs");

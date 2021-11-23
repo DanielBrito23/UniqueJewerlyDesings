@@ -102,23 +102,19 @@ public class productsStocksControl {
     private void eliminar() {
         int fsel = vista.getTablaProductos().getSelectedRow();
         if (fsel == -1) {
-            JOptionPane.showMessageDialog(null, "Seleccione una fila para eliminar ó Actualiza la lista.", "Verificación", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Seleccione una fila para eliminar.", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             DefaultTableModel modeloTabla = (DefaultTableModel) vista.getTablaProductos().getModel();
             String cod = modeloTabla.getValueAt(vista.getTablaProductos().getSelectedRow(), 0).toString();
             modelo.setId_producto(Integer.parseInt(cod));
             System.out.println(cod);
-//        if (vista.getBtnEliminar().getText().contentEquals("Eliminar")) {
-            if (modelo.eliminar()) {
-//                modeloTabla.removeRow(fsel);
+            try {
+                modelo.eliminar();
                 JOptionPane.showMessageDialog(null, "Dato borrado correctamente");
                 cargarLista();
-            } else {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Dato no borrado");
-
             }
-//        }
-
         }
     }
 
