@@ -12,6 +12,7 @@ import uniquejewerlydesings.vista.ListaPersonas;
 import uniquejewerlydesings.vista.ListaProductos;
 import uniquejewerlydesings.vista.MenuPrincipal;
 import uniquejewerlydesings.vista.PersonaIngreso;
+import uniquejewerlydesings.vista.RegistroProductos;
 
 /**
  *
@@ -36,6 +37,9 @@ public class menuControl {
     productoDB productodb = new productoDB();
     productsStocksControl controlProductos = new productsStocksControl(productodb, listaProductos);
     
+    //instancias para que funcione el registrar de producto
+    RegistroProductos vistaRegistroPro = new RegistroProductos();
+    productoRegistrarControl controlProductoRegistrar = new productoRegistrarControl(productodb, vistaRegistroPro);
     
     public void iniciarControl() {
         menu.setVisible(true);
@@ -43,6 +47,7 @@ public class menuControl {
         menu.getBtnNewCustom().addActionListener(e -> btnPersona());
         menu.getJListCustom().addActionListener(e -> listaPersona());
         menu.getBtnListProducts().addActionListener(e -> listaProdcutos());
+        menu.getBtnNewProducto().addActionListener(e -> nuevoProducto());
     }
 
     public void btnPersona() {
@@ -55,5 +60,9 @@ public class menuControl {
      public void listaProdcutos(){
         controlProductos.iniciarControl();
     }
+     
+     public void nuevoProducto(){
+         controlProductoRegistrar.iniciarControl();
+     }
 
 }
